@@ -87,17 +87,20 @@ export const PIZZA_RECIPES = [
     description: 'San Marzano, Fior di latte, Basilikum',
     ingredientIds: ['cheese-mozzarella', 'veg-tomato', 'veg-basil'],
     imageLabel: 'Margherita',
+    image: 'pizzas/margherita.png',
   },
   {
     name: 'Orto Verde',
     description: 'Paprika, Oliven, Artischocken, Mozzarella',
     ingredientIds: ['cheese-mozzarella', 'veg-pepper', 'veg-olive', 'veg-artichoke'],
     imageLabel: 'Orto Verde',
+    image: 'pizzas/orto-verde.png',
   },
   {
     name: 'Bosco',
     description: 'Steinpilze, Champignons, Parmesan',
     ingredientIds: ['mushroom-porcini', 'mushroom-champignon', 'cheese-parmesan'],
     imageLabel: 'Bosco',
+    image: 'pizzas/bosco.png',
   },
 ];

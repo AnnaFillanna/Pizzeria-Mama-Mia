@@ -126,7 +126,7 @@ export const ConstructorPage = (): React.JSX.Element => {
             <article className={styles.recipeCard} key={recipe.name}>
               <div className={styles.recipeImage}>
                 <img
-                  src={`${import.meta.env.BASE_URL}pizza-illustration.svg`}
+                  src={`${import.meta.env.BASE_URL}${recipe.image}`}
                   alt={`${recipe.imageLabel} Pizza`}
                 />
               </div>
