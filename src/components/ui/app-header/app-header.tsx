@@ -16,9 +16,13 @@ export const AppHeaderUI = ({ userName }: TAppHeaderUIProps): React.JSX.Element 
     <header className={styles.header}>
       <nav className={styles.menu} aria-label="Hauptnavigation">
         <NavLink to="/" end className={styles.brand}>
-          <span className={styles.brandIcon} aria-hidden="true">
-            ✦
-          </span>
+          <img
+            className={styles.brandIcon}
+            src={`${import.meta.env.BASE_URL}favicon.svg`}
+            alt=""
+            width="48"
+            height="48"
+          />
           <span>
             Mamma <em>Mia</em>
             <small>PIZZERIA</small>

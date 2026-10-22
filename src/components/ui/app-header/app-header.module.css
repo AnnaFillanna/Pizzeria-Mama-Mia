@@ -21,37 +21,34 @@
   display: flex;
   align-items: center;
   gap: 11px;
-  color: #38271d;
+  color: #3d322b;
   font-weight: 700;
-  font-size: 22px;
-  font-family: "Georgia", 'Times New Roman', serif;
+  font-size: 26px;
+  font-family: 'Georgia', 'Times New Roman', serif;
   line-height: 1;
   text-decoration: none;
 }
 
 .brand em {
-  color: #bd442d;
+  color: #d64533;
   font-weight: 400;
 }
 
 .brand small {
   display: block;
   margin-top: 5px;
-  color: #8b7765;
+  color: #3d322b;
   font-size: 8px;
-  font-family: "Arial", sans-serif;
-  letter-spacing: 3px;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 4px;
+  text-align: center;
 }
 
 .brandIcon {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  color: #fff8ec;
-  font-size: 19px;
-  background: #bd442d;
-  border-radius: 50%;
-  place-items: center;
+  display: block;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
 }
 
 .links {
@@ -111,5 +108,20 @@
 
   .profile span {
     font-size: 17px;
+  }
+}
+
+@media (width <= 700px) {
+  .brand {
+    gap: 7px;
+    font-size: 20px;
+  }
+  .brandIcon {
+    width: 36px;
+    height: 36px;
+  }
+  .brand small {
+    font-size: 7px;
+    letter-spacing: 3px;
   }
 }
