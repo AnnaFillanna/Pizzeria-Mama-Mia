@@ -22,7 +22,7 @@ describe('pizza configuration', () => {
       selectSize('large'),
       toggleTopping('veg-olive'),
       toggleTopping('veg-tomato'),
-    ].reduce(reducer, undefined);
+    ].reduce(reducer, reducer(undefined, { type: 'init' }));
 
     expect(state.doughId).toBe('dough-glutenfree');
     expect(state.size).toBe('large');
