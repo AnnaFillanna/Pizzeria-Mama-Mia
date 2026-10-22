@@ -1,8 +1,4 @@
-import {
-  Input,
-  Button,
-  PasswordInput,
-} from '@krgaa/react-developer-burger-ui-components';
+import { Input, Button, PasswordInput } from '../../form-controls';
 import { Link } from 'react-router-dom';
 
 import type { LoginUIProps } from './type';
@@ -19,7 +15,7 @@ export const LoginUI = ({
 }: LoginUIProps): React.JSX.Element => (
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
-      <h3 className="pb-6 text text_type_main-medium">Anmelden (Demo)</h3>
+      <h3 className="pb-6 text text_type_main-medium">Anmelden</h3>
       <form className={`pb-15 ${styles.form}`} name="login" onSubmit={handleSubmit}>
         <>
           <div className="pb-6">
@@ -54,9 +50,9 @@ export const LoginUI = ({
         </>
       </form>
       <div className={`pb-4 ${styles.question} text text_type_main-default`}>
-        Noch kein Demo-Konto?
+        Noch kein Konto?
         <Link to="/register" className={`pl-2 ${styles.link}`}>
-          Demo-Konto erstellen
+          Konto erstellen
         </Link>
       </div>
       <div className={`${styles.question} text text_type_main-default pb-6`}>

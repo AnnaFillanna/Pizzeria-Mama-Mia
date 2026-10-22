@@ -1,8 +1,4 @@
-import {
-  Input,
-  Button,
-  PasswordInput,
-} from '@krgaa/react-developer-burger-ui-components';
+import { Input, Button, PasswordInput } from '../../form-controls';
 import { Link } from 'react-router-dom';
 
 import type { ResetPasswordUIProps } from './type';
@@ -19,7 +15,7 @@ export const ResetPasswordUI = ({
 }: ResetPasswordUIProps): React.JSX.Element => (
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
-      <h3 className="pb-6 text text_type_main-medium">Demo-Passwort zurücksetzen</h3>
+      <h3 className="pb-6 text text_type_main-medium">Passwort zurücksetzen</h3>
       <form className={`pb-15 ${styles.form}`} name="login" onSubmit={handleSubmit}>
         <div className="pb-6">
           <PasswordInput
@@ -31,7 +27,7 @@ export const ResetPasswordUI = ({
         <div className="pb-6">
           <Input
             type="text"
-            placeholder="Demo-Code"
+            placeholder="Code"
             onChange={(e) => setToken(e.target.value)}
             value={token}
             name="token"

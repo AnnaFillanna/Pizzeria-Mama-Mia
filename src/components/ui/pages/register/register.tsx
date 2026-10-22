@@ -1,8 +1,4 @@
-import {
-  Input,
-  Button,
-  PasswordInput,
-} from '@krgaa/react-developer-burger-ui-components';
+import { Input, Button, PasswordInput } from '../../form-controls';
 import { Link } from 'react-router-dom';
 
 import type { RegisterUIProps } from './type';
@@ -21,7 +17,7 @@ export const RegisterUI = ({
 }: RegisterUIProps): React.JSX.Element => (
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
-      <h3 className="pb-6 text text_type_main-medium">Demo-Konto erstellen</h3>
+      <h3 className="pb-6 text text_type_main-medium">Konto erstellen</h3>
       <form className={`pb-15 ${styles.form}`} name="register" onSubmit={handleSubmit}>
         <>
           <div className="pb-6">
@@ -68,7 +64,7 @@ export const RegisterUI = ({
         </>
       </form>
       <div className={`${styles.question} text text_type_main-default pb-6`}>
-        Bereits ein Demo-Konto?
+        Bereits ein Konto?
         <Link to="/login" className={`pl-2 ${styles.link}`}>
           Anmelden
         </Link>

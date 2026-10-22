@@ -93,7 +93,7 @@ export const ConstructorPage = (): React.JSX.Element => {
           >
             Pizza kreieren <span aria-hidden="true">↓</span>
           </a>
-          <p className={styles.deliveryNote}>Frisch zubereitet · Nur als lokale Demo</p>
+          <p className={styles.deliveryNote}>Deine Zutaten · Deine Lieblingspizza</p>
         </div>
         <div className={styles.heroImage}>
           <img
@@ -285,10 +285,10 @@ export const ConstructorPage = (): React.JSX.Element => {
               disabled={!toppings.length || orderRequest}
               onClick={submitOrder}
             >
-              {orderRequest ? 'Wird zubereitet …' : 'Demo-Bestellung aufgeben'}
+              {orderRequest ? 'Wird zubereitet …' : 'Bestellung aufgeben'}
             </button>
             <p className={styles.demoNote}>
-              Lokale Demo – es wird keine echte Bestellung übermittelt.
+              Deine Auswahl wird in diesem Browser gespeichert.
             </p>
             {orderError && (
               <p className={styles.orderError} role="alert">
@@ -304,7 +304,7 @@ export const ConstructorPage = (): React.JSX.Element => {
           <div>
             <strong>Grazie, deine Pizza ist bestellt!</strong>
             <span>
-              Demo-Bestellung Nr. {order.number} · {euro(order.totalPrice ?? total)}
+              Bestellung Nr. {order.number} · {euro(order.totalPrice ?? total)}
             </span>
           </div>
           <button
@@ -319,7 +319,7 @@ export const ConstructorPage = (): React.JSX.Element => {
       <footer className={styles.footer}>
         <span>Mamma Mia</span>
         <span>Mit Liebe gemacht. Für dich gebacken.</span>
-        <span>© 2026 · Demo</span>
+        <span>© 2026 · Mamma Mia</span>
       </footer>
     </main>
   );

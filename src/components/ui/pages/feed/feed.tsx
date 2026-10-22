@@ -1,5 +1,5 @@
 import { OrdersList, FeedInfo } from '@components';
-import { RefreshButton } from '@krgaa/react-developer-burger-ui-components';
+
 import { memo } from 'react';
 
 import type { FeedUIProps } from './type';
@@ -13,12 +13,14 @@ export const FeedUI = memo(function FeedUI({
   return (
     <main className={styles.containerMain}>
       <div className={`${styles.titleBox} mt-10 mb-5`}>
-        <h1 className="text text_type_main-large">Demo-Bestellungen</h1>
-        <RefreshButton
-          text="Aktualisieren"
+        <h1 className="text text_type_main-large">Bestellungen</h1>
+        <button
+          className="pizza-button pizza-button-secondary"
+          type="button"
           onClick={handleGetFeeds}
-          extraClass={'ml-30'}
-        />
+        >
+          Aktualisieren
+        </button>
       </div>
       <div className={styles.main}>
         <div className={styles.columnOrders}>

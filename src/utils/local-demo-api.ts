@@ -54,13 +54,13 @@ const readOrders = (): TOrder[] => {
       const validOrders = parsedOrders.filter(isDemoOrder);
       if (validOrders.length !== parsedOrders.length) {
         console.error(
-          'Ungültige Demo-Bestellungen wurden aus dem lokalen Verlauf ausgelassen.'
+          'Ungültige Bestellungen wurden aus dem lokalen Verlauf ausgelassen.'
         );
       }
       return validOrders;
     }
   } catch (error) {
-    console.error('Gespeicherte Demo-Bestellungen konnten nicht gelesen werden.', error);
+    console.error('Gespeicherte Bestellungen konnten nicht gelesen werden.', error);
   }
 
   return [];
@@ -87,7 +87,7 @@ const readUser = (): TUser | null => {
       return { name: parsedUser.name, email: parsedUser.email };
     }
   } catch (error) {
-    console.error('Gespeicherter Demo-Account konnte nicht gelesen werden.', error);
+    console.error('Gespeicherter Account konnte nicht gelesen werden.', error);
   }
 
   return null;
@@ -191,7 +191,7 @@ export const loginUserApi = (data: TLoginData): Promise<TAuthResponse> =>
 export const getUserApi = (): Promise<TServerResponse<{ user: TUser }>> =>
   Promise.resolve().then(() => {
     const user = readUser();
-    if (!user) throw new Error('Kein Demo-Konto angemeldet');
+    if (!user) throw new Error('Kein Konto angemeldet');
     return { success: true, user };
   });
 

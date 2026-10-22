@@ -1,17 +1,17 @@
 .link {
   display: block;
   width: 100%;
-  color: #8585ad;
+  color: #806c59;
   text-decoration: none;
 }
 
 .link_active {
-  color: #f2f2f3;
+  color: #3e5b43;
 }
 
 .button {
   display: block;
-  color: #8585ad;
+  color: #806c59;
   text-decoration: none;
   background-color: unset;
   border: none;
@@ -19,4 +19,15 @@
 
 .button:hover {
   cursor: pointer;
+}
+
+.link,
+.button {
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+.link_active {
+  background: #eee9dc;
+  font-weight: 700;
 }

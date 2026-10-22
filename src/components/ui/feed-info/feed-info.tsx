@@ -17,8 +17,8 @@ export const FeedInfoUI = memo(function FeedInfoUI({
         <HalfColumn orders={readyOrders} title={'Abgeschlossen'} textColor={'blue'} />
         <HalfColumn orders={pendingOrders} title={'In Bearbeitung'} />
       </div>
-      <Column title={'Demo-Bestellungen gesamt'} content={total} />
-      <Column title={'Demo-Bestellungen heute'} content={totalToday} />
+      <Column title={'Bestellungen gesamt'} content={total} />
+      <Column title={'Bestellungen heute'} content={totalToday} />
     </section>
   );
 });
@@ -34,7 +34,7 @@ const HalfColumn = ({
       {orders.map((item, index) => (
         <li
           className={`text text_type_digits-default ${styles.list_item}`}
-          style={{ color: textColor === 'blue' ? '#00cccc' : '#F2F2F3' }}
+          style={{ color: textColor === 'blue' ? '#3e5b43' : '#806c59' }}
           key={index}
         >
           {item}

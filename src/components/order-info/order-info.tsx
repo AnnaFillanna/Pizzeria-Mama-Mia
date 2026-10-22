@@ -20,7 +20,7 @@ export const OrderInfo = (): React.JSX.Element => {
     }
   }, [dispatch, number]);
 
-  /* Bereitet die gespeicherte Demo-Bestellung für die Anzeige auf. */
+  /* Bereitet die gespeicherte Bestellung für die Anzeige auf. */
   const orderInfo = useMemo(() => {
     if (!orderData || !ingredients.length) return null;
 

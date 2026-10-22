@@ -7,11 +7,11 @@
 .order {
   display: block;
   box-sizing: border-box;
-  min-width: 576px;
+  min-width: 0;
   color: unset;
   text-decoration: none;
-  background-color: #1c1c21;
-  border-radius: 40px;
+  background-color: #fffdf8;
+  border-radius: 16px;
 }
 
 .order_info {
@@ -41,8 +41,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: #1c1c21;
-  border: #801ab3 solid 2px;
+  background-color: #fffdf8;
+  border: #ddd1bd solid 2px;
   border-radius: 50%;
 }
 
@@ -55,7 +55,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 112px;
+  width: 56px;
   height: 56px;
   transform: translate(-50%, -50%);
 }
@@ -65,4 +65,29 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.order {
+  border: 1px solid #e7ddce;
+  box-shadow: 0 8px 24px rgb(62 48 38 / 4%);
+}
+.order_info {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.order_content {
+  gap: 12px;
+}
+.ingredients {
+  min-width: 0;
+  max-width: 65%;
+  overflow: hidden;
+}
+.img_wrap {
+  flex-shrink: 0;
+}
+.order_total {
+  white-space: nowrap;
+  font-weight: 700;
+  color: #3e5b43;
 }

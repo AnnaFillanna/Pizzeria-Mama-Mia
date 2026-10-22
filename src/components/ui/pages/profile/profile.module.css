@@ -1,16 +1,28 @@
 .container {
   composes: container from '../common.module.css';
 }
-
 .menu {
-  width: 320px;
+  width: 250px;
+  flex-shrink: 0;
+  margin: 0;
 }
-
 .form {
   composes: form from '../common.module.css';
-  max-width: 480px;
+  max-width: 560px;
+  margin: 0;
+  padding: 28px;
+  border: 1px solid #e7ddce;
+  border-radius: 18px;
+  background: #fffdf8;
 }
-
 .error {
   composes: error from '../common.module.css';
+}
+@media (width <= 700px) {
+  .menu {
+    width: 100%;
+  }
+  .form {
+    padding: 20px;
+  }
 }

@@ -1,33 +1,31 @@
 .containerMain {
-  display: flex;
-  flex-direction: column;
-  max-width: 1240px;
-  margin-right: auto;
-  margin-left: auto;
-  overflow: hidden;
+  width: min(100% - 40px, 1160px);
+  margin: 40px auto;
 }
-
 .titleBox {
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
   align-items: center;
-  width: 100%;
-  max-width: 1240px;
-}
-
-.main {
-  display: flex;
   justify-content: space-between;
-  width: 1240px;
-  height: 100%;
-  overflow: hidden;
+  gap: 20px;
+  margin: 0 0 28px;
 }
-
-.columnOrders {
-  width: 608px;
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
 }
-
+.columnOrders,
 .columnInfo {
-  width: 580px;
-  overflow: hidden auto;
+  min-width: 0;
+}
+.columnInfo {
+  padding: 24px;
+  background: #f0e5d3;
+  border-radius: 16px;
+}
+@media (width <= 800px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
 }

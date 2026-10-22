@@ -1,5 +1,5 @@
 import { ProfileMenu } from '@components';
-import { Button, Input } from '@krgaa/react-developer-burger-ui-components';
+import { Button, Input } from '../../form-controls';
 
 import type { ProfileUIProps } from './type';
 
@@ -48,7 +48,7 @@ export const ProfileUI = ({
         <div className="pb-6">
           <Input
             type={'password'}
-            placeholder={'Demo-Passwort (wird nicht gespeichert)'}
+            placeholder={'Passwort (wird nicht gespeichert)'}
             onChange={handleInputChange}
             value={formValue.password}
             name={'password'}

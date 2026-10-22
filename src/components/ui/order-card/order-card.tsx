@@ -1,10 +1,7 @@
 import { OrderStatus } from '@components';
-import {
-  CurrencyIcon,
-  FormattedDate,
-} from '@krgaa/react-developer-burger-ui-components';
+import { formatEuro, formatOrderDate } from '../../../utils/format';
 import { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import type { OrderCardUIProps } from './type';
 
@@ -15,6 +12,7 @@ export const OrderCardUI = memo(function OrderCardUI({
   maxIngredients,
   locationState,
 }: OrderCardUIProps): React.JSX.Element {
+  const location = useLocation();
   return (
     <Link
       to={
@@ -31,7 +29,7 @@ export const OrderCardUI = memo(function OrderCardUI({
           #{String(orderInfo.number).padStart(6, '0')}
         </span>
         <span className="text text_type_main-default text_color_inactive">
-          <FormattedDate date={orderInfo.date} />
+          {formatOrderDate(orderInfo.date)}
         </span>
       </div>
       <h4 className={`pt-6 text text_type_main-medium ${styles.order_name}`}>
@@ -71,9 +69,8 @@ export const OrderCardUI = memo(function OrderCardUI({
         </ul>
         <div>
           <span className={`text text_type_digits-default pr-1 ${styles.order_total}`}>
-            {orderInfo.total}
+            {formatEuro(orderInfo.total)}
           </span>
-          <CurrencyIcon type="primary" />
         </div>
       </div>
     </Link>

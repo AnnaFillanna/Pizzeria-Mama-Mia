@@ -41,7 +41,7 @@ const feedsSlice = createSlice({
       .addCase(fetchFeeds.rejected, (state, action) => {
         state.isLoading = false;
         state.error =
-          action.error.message ?? 'Die Demo-Bestellungen konnten nicht geladen werden.';
+          action.error.message ?? 'Die Bestellungen konnten nicht geladen werden.';
       });
   },
 });

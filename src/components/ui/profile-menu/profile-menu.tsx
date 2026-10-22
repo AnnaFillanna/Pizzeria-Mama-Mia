@@ -28,7 +28,7 @@ export const ProfileMenuUI = ({
         } ${isActive ? styles.link_active : ''}`
       }
     >
-      Demo-Bestellungen
+      Bestellungen
     </NavLink>
     <button
       className={`text text_type_main-medium text_color_inactive pt-4 pb-4 ${styles.button}`}
@@ -38,8 +38,8 @@ export const ProfileMenuUI = ({
     </button>
     <p className="pt-20 text text_type_main-default text_color_inactive">
       {pathname === '/profile'
-        ? 'Hier kannst du deine Demo-Profildaten ändern.'
-        : 'Hier findest du deine lokalen Demo-Bestellungen.'}
+        ? 'Hier kannst du deine Profildaten ändern.'
+        : 'Hier findest du deine lokalen Bestellungen.'}
     </p>
   </>
 );

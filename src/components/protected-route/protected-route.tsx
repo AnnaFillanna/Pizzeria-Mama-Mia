@@ -15,7 +15,7 @@ export const ProtectedRoute = ({
   const isAuthChecked = useSelector((state) => state.auth.isAuthChecked);
   const location = useLocation();
   if (!isAuthChecked) {
-    return <div>Demo-Konto wird geprüft …</div>;
+    return <div>Konto wird geprüft …</div>;
   }
   if (onlyUnAuth) {
     const from = (location.state as { from?: Location } | null)?.from;

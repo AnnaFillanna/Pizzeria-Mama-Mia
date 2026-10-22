@@ -63,7 +63,7 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message ?? 'Die Demo-Anmeldung ist fehlgeschlagen.';
+        state.error = action.error.message ?? 'Die Anmeldung ist fehlgeschlagen.';
       })
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
@@ -76,8 +76,7 @@ const authSlice = createSlice({
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.error =
-          action.error.message ?? 'Das Demo-Konto konnte nicht erstellt werden.';
+        state.error = action.error.message ?? 'Das Konto konnte nicht erstellt werden.';
       })
       .addCase(checkUserAuth.pending, (state) => {
         state.isAuthChecked = false;
@@ -101,7 +100,7 @@ const authSlice = createSlice({
       .addCase(updateUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error =
-          action.error.message ?? 'Dein Demo-Profil konnte nicht aktualisiert werden.';
+          action.error.message ?? 'Dein Profil konnte nicht aktualisiert werden.';
       })
       .addCase(logoutUser.pending, (state) => {
         state.isLoading = true;
@@ -114,7 +113,7 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message ?? 'Die Demo-Abmeldung ist fehlgeschlagen.';
+        state.error = action.error.message ?? 'Die Abmeldung ist fehlgeschlagen.';
       });
   },
 });

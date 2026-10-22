@@ -47,7 +47,7 @@ const orderSlice = createSlice({
       .addCase(createOrder.rejected, (state, action) => {
         state.orderRequest = false;
         state.error =
-          action.error.message ?? 'Deine Demo-Bestellung konnte nicht erstellt werden.';
+          action.error.message ?? 'Deine Bestellung konnte nicht erstellt werden.';
       });
   },
 });

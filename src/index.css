@@ -7,7 +7,7 @@
   --top-constructor-item-border-radius: 6px;
   --bottom-constructor-item-border-radius: 6px;
   color: #3e3026;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: 'Arial', 'Helvetica', sans-serif;
   background: #faf7ef;
   font-synthesis: none;
   text-rendering: optimizelegibility;
@@ -46,4 +46,116 @@ input:focus-visible {
 ::selection {
   color: #fffaf0;
   background: #bd442d;
+}
+
+/* Shared typography for account, history and ingredient detail screens. */
+#root .text {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3e3026;
+}
+#root .text_type_main-medium {
+  font-size: 22px;
+  line-height: 1.4;
+}
+#root .text_type_main-large {
+  font:
+    400 clamp(30px, 4vw, 44px) / 1.2 Georgia,
+    serif;
+}
+#root .text_type_digits-default {
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+#root .text_type_digits-large {
+  font:
+    400 64px / 1.2 Georgia,
+    serif;
+}
+#root .text_color_inactive {
+  color: #806c59;
+}
+.pizza-field {
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+.pizza-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #695644;
+  font-size: 14px;
+  font-weight: 700;
+}
+.pizza-field input {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  color: #3e3026;
+  background: #faf7ef;
+  border: 1px solid #d9cbb8;
+  border-radius: 8px;
+}
+.pizza-field input:focus {
+  outline: 2px solid #bd442d;
+  outline-offset: 2px;
+}
+.pizza-password {
+  position: relative;
+}
+.pizza-password input {
+  padding-right: 100px;
+}
+.pizza-password button {
+  position: absolute;
+  bottom: 15px;
+  right: 12px;
+  padding: 0;
+  color: #76503b;
+  font-size: 12px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.pizza-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 24px;
+  color: #fffdf8;
+  font-weight: 700;
+  text-decoration: none;
+  background: #b6402b;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pizza-button:hover {
+  background: #933523;
+}
+.pizza-button-secondary {
+  color: #3e5b43;
+  background: #edf0e8;
+  border-color: #d5ddce;
+}
+.pizza-button-secondary:hover {
+  background: #dce4d5;
+}
+.pizza-empty {
+  padding: 36px 24px;
+  color: #695644;
+  text-align: center;
+  background: #fffdf8;
+  border: 1px dashed #d9cbb8;
+  border-radius: 16px;
+}
+.pizza-empty h2 {
+  color: #3e3026;
+  font:
+    400 28px Georgia,
+    serif;
+}
+.pizza-empty p {
+  margin-bottom: 24px;
+  line-height: 1.6;
 }

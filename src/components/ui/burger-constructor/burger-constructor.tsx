@@ -78,7 +78,7 @@ export const BurgerConstructorUI = ({
         <CurrencyIcon type="primary" />
       </div>
       <Button htmlType="button" type="primary" size="large" onClick={onOrderClick}>
-        Demo-Bestellung aufgeben
+        Bestellung aufgeben
       </Button>
     </div>
 

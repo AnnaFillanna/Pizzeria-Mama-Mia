@@ -1,15 +1,27 @@
-.menu {
-  width: 320px;
-}
-
 .main {
   display: flex;
-  width: 1240px;
-  height: 100%;
-  margin: 0 auto;
-  overflow: hidden;
+  align-items: flex-start;
+  gap: 40px;
+  width: min(100% - 40px, 1160px);
+  margin: 48px auto;
 }
-
+.menu {
+  width: 250px;
+  flex-shrink: 0;
+  margin: 0;
+}
 .orders {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+@media (width <= 700px) {
+  .main {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .menu,
+  .orders {
+    width: 100%;
+  }
 }

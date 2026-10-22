@@ -1,12 +1,12 @@
 # Mamma Mia – Pizza mit Amore
 
-Eine eigenständige Portfolio-Demo auf Basis von React, TypeScript, Redux Toolkit und React Router. Stelle Teig, Größe und Belag zusammen und lege eine lokale Demo-Bestellung an.
+Eine eigenständige Portfolio-Anwendung auf Basis von React, TypeScript, Redux Toolkit und React Router. Stelle Teig, Größe und Belag zusammen und lege eine lokale Bestellung an.
 
-## Live-Demo
+## Website
 
 [🍕 Pizzeria Mamma Mia öffnen](https://annafillanna.github.io/Pizzeria-Mama-Mia/)
 
-Ohne Installation ausprobieren: Pizza zusammenstellen, Preis live sehen und eine Demo-Bestellung aufgeben. Die Anwendung ist ein Frontend-Portfolio-Projekt; alle Bestellungen bleiben im eigenen Browser.
+Ohne Installation ausprobieren: Pizza zusammenstellen, Preis live sehen und eine Bestellung aufgeben. Die Anwendung ist ein Frontend-Portfolio-Projekt; alle Bestellungen bleiben im eigenen Browser.
 
 ![Zutaten im Konfigurator](public/ingredients/atlas.png)
 
@@ -19,16 +19,16 @@ npm run start
 
 Die Anwendung läuft unter `http://localhost:4000`.
 
-## Demo-Funktionen
+## Funktionen
 
 - Klassischer, Vollkorn- und glutenfreier Teig als separate Optionen
 - 48 bebilderte Optionen: drei Teigböden, vier Saucen, Käse, Gemüse, Kräuter, Pilze, Fleisch und Meeresfrüchte
 - Drei Größen und individuelle Kombinationen
 - Redux-basierte Auswahl, Preisberechnung und lokale Bestellbestätigung
-- Lokale Demo-Bestellhistorie und Profilansichten im Browser
+- Lokale Bestellhistorie und Profilansichten im Browser
 - Keine Verbindung zur Stellar-Burgers-API oder zu einem Bestellserver
 
-Demo-Bestellungen und das Demo-Profil werden lokal im Browser gespeichert. Es wird keine echte Bestellung übermittelt. Passwortfelder dienen nur der Demonstration und Passwörter werden nicht gespeichert. Für echte Konten, Zahlungen oder Bestellungen wäre ein eigener sicherer Backend-Service erforderlich.
+Bestellungen und das Profil werden lokal im Browser gespeichert. Es wird keine echte Bestellung übermittelt. Passwortfelder dienen nur der Veranschaulichung und Passwörter werden nicht gespeichert. Für echte Konten, Zahlungen oder Bestellungen wäre ein eigener sicherer Backend-Service erforderlich.
 
 ## Prüfungen
 
@@ -46,4 +46,4 @@ Playwright startet den Vite-Server für E2E-Tests automatisch. Falls der Chromiu
 
 `npm run deploy` baut die Anwendung und veröffentlicht `dist/` auf dem Branch `gh-pages`. In GitHub → Settings → Pages muss „Deploy from a branch“, `gh-pages` und `/ (root)` ausgewählt sein. Hash-Routing unterstützt direkte Links zu Unterseiten ohne Serverkonfiguration.
 
-Die Zutatenbilder wurden mit dem integrierten ImageGen-Werkzeug erstellt. Das Atlas-Original liegt unter `public/ingredients/atlas.png`; die einzelnen Kacheln werden als lokale JPG-Dateien geladen. Preise und Nährwerte sind illustrative Demodaten.
+Die Zutatenbilder wurden mit dem integrierten ImageGen-Werkzeug erstellt. Das Atlas-Original liegt unter `public/ingredients/atlas.png`; die einzelnen Kacheln werden als lokale JPG-Dateien geladen. Preise und Nährwerte sind illustrative Beispieldaten.

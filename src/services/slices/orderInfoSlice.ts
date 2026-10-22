@@ -39,7 +39,7 @@ const orderInfoSlice = createSlice({
       .addCase(fetchOrderByNumber.rejected, (state, action) => {
         state.isLoading = false;
         state.error =
-          action.error.message ?? 'Die Demo-Bestellung konnte nicht geladen werden.';
+          action.error.message ?? 'Die Bestellung konnte nicht geladen werden.';
       });
   },
 });

@@ -1,4 +1,4 @@
-import { Input, Button } from '@krgaa/react-developer-burger-ui-components';
+import { Input, Button } from '../../form-controls';
 import { Link } from 'react-router-dom';
 
 import type { PageUIProps } from '@ui-pages/common-type';
@@ -13,7 +13,7 @@ export const ForgotPasswordUI = ({
 }: PageUIProps): React.JSX.Element => (
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
-      <h3 className="pb-6 text text_type_main-medium">Demo-Passwort zurücksetzen</h3>
+      <h3 className="pb-6 text text_type_main-medium">Passwort zurücksetzen</h3>
       <form className={`pb-15 ${styles.form}`} name="login" onSubmit={handleSubmit}>
         <div className="pb-6">
           <Input

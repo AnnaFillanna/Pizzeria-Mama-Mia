@@ -19,7 +19,7 @@ test('builds a pizza and saves a local demo order', async ({ page }) => {
   await anchovies.check();
   await expect(anchovies).toBeChecked();
 
-  await page.getByRole('button', { name: 'Demo-Bestellung aufgeben' }).click();
+  await page.getByRole('button', { name: 'Bestellung aufgeben' }).click();
   await expect(page.getByRole('status')).toContainText('Grazie');
 
   const orders = await page.evaluate(() =>
@@ -55,7 +55,7 @@ test('new illustrated ingredients work on a mobile screen', async ({ page }) => 
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)
   ).toBe(true);
-  await page.getByRole('button', { name: 'Demo-Bestellung aufgeben' }).click();
+  await page.getByRole('button', { name: 'Bestellung aufgeben' }).click();
   await expect(page.getByRole('status')).toContainText('Grazie');
   const orders = await page.evaluate(() =>
     localStorage.getItem('mamma-mia-demo-orders')

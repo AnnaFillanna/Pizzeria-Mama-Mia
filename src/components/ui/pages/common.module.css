@@ -1,44 +1,45 @@
 .container {
   display: flex;
-  width: 100%;
-  max-width: 1240px;
-  height: 100%;
-  margin: 0 auto;
+  width: min(100% - 40px, 1160px);
+  margin: 48px auto;
+  gap: 48px;
+  align-items: flex-start;
 }
-
 .wrapCenter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 480px;
-  margin: auto;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  padding: 32px;
+  background: #fffdf8;
+  border: 1px solid #e7ddce;
+  border-radius: 18px;
 }
-
 .form {
   width: 100%;
 }
-
-.form div {
-  width: 100%;
-  text-align: right;
-}
-
 .button {
   display: flex;
   justify-content: center;
 }
-
 .question {
-  color: #8585ad;
+  color: #806c59;
+  line-height: 1.7;
 }
-
 .link {
-  color: #4c4cff;
-  text-decoration: none;
+  color: #ad402c;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-
 .error {
-  color: #f00;
+  color: #a42d24;
   text-align: center;
+}
+@media (width <= 700px) {
+  .container {
+    flex-direction: column;
+    gap: 24px;
+    margin: 28px auto;
+  }
+  .wrapCenter {
+    padding: 24px 18px;
+  }
 }

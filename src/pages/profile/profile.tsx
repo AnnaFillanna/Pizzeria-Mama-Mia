@@ -5,7 +5,7 @@ import { updateUser } from '../../services/slices/authSlice';
 import { useSelector, useDispatch } from '../../services/store';
 
 export const Profile = (): React.JSX.Element => {
-  /** Lädt Demo-Kontodaten aus Redux. */
+  /** Lädt Kontodaten aus Redux. */
   const user = useSelector((state) => state.auth.user);
 
   const dispatch = useDispatch();
