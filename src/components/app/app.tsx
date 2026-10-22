@@ -44,6 +44,14 @@ const App = (): React.JSX.Element => {
   return (
     <div className={styles.app}>
       <AppHeader />
+      <aside className={styles.demoNotice} aria-label="Hinweis zur Demo-Version">
+        <span className={styles.demoLabel}>DEMO</span>
+        <p>
+          Demo-Version – Diese Website dient ausschließlich zu Demonstrationszwecken. Es
+          werden keine echten Bestellungen oder Anfragen übermittelt. Dies ist keine
+          echte Pizzeria-Website.
+        </p>
+      </aside>
       <AppContent
         ingredients={ingredients}
         isLoading={isIngredientsLoading}
