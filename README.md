@@ -4,7 +4,7 @@ Eine eigenständige Portfolio-Anwendung auf Basis von React, TypeScript, Redux T
 
 ## Website
 
-[🍕 Pizzeria Mamma Mia öffnen](https://annafillanna.github.io/Pizzeria-Mama-Mia/)
+[🍕 Pizzeria Mamma Mia öffnen](https://annafillanna.github.io/Pizzeria-Mama-Mia/?v=0d54906)
 
 Ohne Installation ausprobieren: Pizza zusammenstellen, Preis live sehen und eine Bestellung aufgeben. Die Anwendung ist ein Frontend-Portfolio-Projekt; alle Bestellungen bleiben im eigenen Browser.
 
