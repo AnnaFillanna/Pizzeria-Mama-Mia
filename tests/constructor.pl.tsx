@@ -63,3 +63,13 @@ test('new illustrated ingredients work on a mobile screen', async ({ page }) => 
   for (const id of ['veg-cucumber', 'sauce-pesto', 'fish-shrimp'])
     expect(orders).toContain(id);
 });
+
+test('header navigation returns from orders to the pizza builder', async ({ page }) => {
+  await page.getByRole('navigation').getByRole('link', { name: 'Bestellungen' }).click();
+  await page
+    .getByRole('navigation')
+    .getByRole('link', { name: 'Pizza kreieren' })
+    .click();
+  await expect(page.getByRole('heading', { name: 'Werde Pizzaiolo' })).toBeVisible();
+  await expect(page).toHaveURL(/#\/#konfigurator$/);
+});
