@@ -38,7 +38,7 @@
   display: block;
   margin-top: 5px;
   color: #3d322b;
-  font-size: 8px;
+  font-size: 11px;
   font-family: 'Arial', sans-serif;
   letter-spacing: 4px;
   text-align: center;
@@ -58,9 +58,9 @@
 
 .link,
 .profile {
-  color: #665345;
+  color: #594839;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
   text-decoration: none;
   transition: color 160ms ease;
 }
@@ -107,7 +107,7 @@
   }
 
   .profile span {
-    font-size: 17px;
+    font-size: 19px;
   }
 }
 
@@ -121,7 +121,25 @@
     height: 36px;
   }
   .brand small {
-    font-size: 7px;
+    font-size: 10px;
     letter-spacing: 3px;
+  }
+}
+
+@media (width <= 360px) {
+  .menu {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    height: auto;
+    padding: 8px 0;
+  }
+
+  .brand {
+    flex: 1 0 100%;
+  }
+
+  .links {
+    flex: 1;
+    gap: 10px;
   }
 }

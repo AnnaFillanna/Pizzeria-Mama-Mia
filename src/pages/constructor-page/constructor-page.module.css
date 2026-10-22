@@ -24,7 +24,7 @@
   margin: 0 0 16px;
   color: #a34e36;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 2.3px;
 }
 
@@ -47,7 +47,7 @@
   max-width: 390px;
   margin: 24px 0 26px;
   color: #6e5b4c;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
 }
 
@@ -58,7 +58,7 @@
   padding: 15px 21px;
   color: #fffaf0;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 16px;
   text-decoration: none;
   background: #bd442d;
   border-radius: 5px;
@@ -74,8 +74,8 @@
 
 .deliveryNote {
   margin: 20px 0 0;
-  color: #8e7a66;
-  font-size: 11px;
+  color: #66513f;
+  font-size: 14px;
 }
 
 .heroImage {
@@ -148,7 +148,7 @@
   max-width: 350px;
   margin: 0 0 4px;
   color: #806d5c;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -192,8 +192,8 @@
 .doughPrice,
 .sizeCard span {
   margin-top: 5px;
-  color: #927d69;
-  font-size: 10px;
+  color: #66513f;
+  font-size: 14px;
 }
 
 .recipeCard:hover .recipeImage img {
@@ -215,31 +215,34 @@
   margin: 0;
   color: #3e2c20;
   font-weight: 400;
-  font-size: 22px;
+  font-size: clamp(20px, 2.35vw, 30px);
   font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .recipeContent > div > span {
   color: #3e5b43;
   font-weight: 700;
-  font-size: 12px;
+  font-size: clamp(15px, 1.55vw, 20px);
 }
 
 .recipeContent p {
   margin: 9px 0 16px;
-  color: #8c7967;
-  font-size: 12px;
+  color: #594839;
+  font-size: clamp(15px, 1.33vw, 17px);
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 .recipeContent button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   padding: 12px 0 0;
-  color: #b6402b;
+  color: #9e3322;
   font-weight: 700;
-  font-size: 12px;
+  font-size: clamp(15px, 1.33vw, 17px);
+  text-transform: uppercase;
   background: transparent;
   border: 0;
   border-top: 1px solid #eee5d8;
@@ -305,7 +308,7 @@
   margin-right: 10px;
   color: #bc4c33;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 14px;
   font-family: 'Arial', sans-serif;
 }
 
@@ -405,7 +408,7 @@
 .sizeCard strong {
   color: #473528;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .toppingGroup {
@@ -414,9 +417,9 @@
 
 .toppingGroup h3 {
   margin: 0 0 10px;
-  color: #786351;
+  color: #594839;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .toppingGrid {
@@ -432,7 +435,7 @@
   min-height: 43px;
   padding: 8px 10px;
   color: #594839;
-  font-size: 11px;
+  font-size: 14px;
   background: #fbf8f2;
   border: 1px solid #eee6da;
   border-radius: 6px;
@@ -450,8 +453,8 @@
 
 .topping small {
   margin-left: auto;
-  color: #8e7864;
-  font-size: 10px;
+  color: #66513f;
+  font-size: 14px;
   white-space: nowrap;
 }
 
@@ -487,8 +490,8 @@
 
 .summaryMeta {
   margin: 8px 0 17px;
-  color: #806c59;
-  font-size: 11px;
+  color: #594839;
+  font-size: 14px;
 }
 
 .summaryList {
@@ -497,7 +500,7 @@
   margin: 0;
   padding: 0 0 17px;
   color: #634f3d;
-  font-size: 11px;
+  font-size: 14px;
   list-style: none;
   border-bottom: 1px solid #dbccb8;
 }
@@ -509,7 +512,7 @@
 }
 
 .emptySummary {
-  color: #887564;
+  color: #594839;
 }
 
 .totalRow {
@@ -518,7 +521,7 @@
   align-items: center;
   padding: 18px 0;
   color: #453326;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .totalRow strong {
@@ -532,7 +535,7 @@
   padding: 15px 12px;
   color: #fffaf0;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 16px;
   background: #3e5b43;
   border: 0;
   border-radius: 5px;
@@ -541,7 +544,7 @@
 }
 
 .orderButton:disabled {
-  background: #9d9b8a;
+  background: #756f60;
   cursor: not-allowed;
 }
 
@@ -551,8 +554,8 @@
 
 .demoNote {
   margin: 12px 0 0;
-  color: #806c59;
-  font-size: 10px;
+  color: #594839;
+  font-size: 14px;
   line-height: 1.5;
   text-align: center;
 }
@@ -560,7 +563,7 @@
 .orderError {
   margin: 12px 0 0;
   color: #9d2e23;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .successBanner {
@@ -592,7 +595,7 @@
 }
 
 .successBanner > div > span {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .footer {
@@ -601,8 +604,8 @@
   align-items: center;
   gap: 16px;
   min-height: 90px;
-  color: #877360;
-  font-size: 11px;
+  color: #594839;
+  font-size: 14px;
   border-top: 1px solid #e9dfd0;
 }
 
@@ -632,6 +635,63 @@
   }
 }
 
+@media (width <= 1000px) {
+  .toppingGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (width <= 767px) {
+  .recipeGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .recipeCard {
+    display: block;
+  }
+
+  .recipeImage {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .recipeImage img {
+    display: block;
+    height: auto;
+  }
+
+  .recipeContent {
+    padding: 18px 20px 20px;
+  }
+
+  .recipeContent > div {
+    align-items: baseline;
+  }
+
+  .recipeContent h3 {
+    min-width: 0;
+    font-size: 23px;
+  }
+
+  .recipeContent > div > span {
+    flex-shrink: 0;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .recipeContent p {
+    margin: 10px 0 16px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .recipeContent button {
+    padding-top: 14px;
+    font-size: 16px;
+  }
+}
+
 @media (width <= 680px) {
   .page {
     width: min(100% - 28px, 520px);
@@ -644,6 +704,11 @@
 
   .heroCopy {
     padding: 25px 0 0;
+    text-align: center;
+  }
+
+  .eyebrow {
+    text-align: center;
   }
 
   .hero h1 {
@@ -652,7 +717,16 @@
 
   .heroText {
     max-width: 330px;
-    font-size: 13px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 16px;
+  }
+
+  .primaryLink {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-transform: uppercase;
   }
 
   .heroImage {
@@ -668,7 +742,7 @@
     bottom: 4%;
     width: 70px;
     height: 70px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .menuSection,
@@ -684,34 +758,16 @@
     margin-top: 13px;
   }
 
-  .recipeGrid {
-    grid-template-columns: 1fr;
-    gap: 13px;
-  }
-
-  .recipeCard {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-  }
-
-  .recipeImage {
-    min-height: 100%;
-  }
-
-  .recipeContent {
-    padding: 16px;
-  }
-
-  .recipeContent h3 {
-    font-size: 19px;
-  }
-
-  .recipeContent p {
-    line-height: 1.5;
-  }
-
   .builderGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+  }
+
+  .options,
+  .summary {
+    width: 100%;
+    min-width: 0;
   }
 
   .summary {
@@ -745,16 +801,15 @@
     padding-left: 4px;
   }
 
-  .doughName {
-    font-size: 10px;
-  }
-
-  .toppingGrid {
-    grid-template-columns: 1fr;
-  }
-
   .options {
     padding: 21px 15px;
+  }
+}
+
+@media (width <= 360px) {
+  .topping .ingredientImage {
+    width: 40px;
+    height: 40px;
   }
 }
 

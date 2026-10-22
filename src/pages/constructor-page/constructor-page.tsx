@@ -94,7 +94,7 @@ export const ConstructorPage = (): React.JSX.Element => {
                 ?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Pizza kreieren
+            Pizza zusammenstellen
           </a>
           <p className={styles.deliveryNote}>Deine Zutaten · Deine Lieblingspizza</p>
         </div>

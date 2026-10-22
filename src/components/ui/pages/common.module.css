@@ -21,11 +21,13 @@
   justify-content: center;
 }
 .question {
-  color: #806c59;
+  color: #66513f;
+  font-size: 17px;
   line-height: 1.7;
 }
 .link {
-  color: #ad402c;
+  color: #913321;
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
