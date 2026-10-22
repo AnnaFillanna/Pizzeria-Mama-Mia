@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
   loginUserApi,
+  loginDemoGuestApi,
   registerUserApi,
   getUserApi,
   updateUserApi,
@@ -18,6 +19,8 @@ type TAuthState = {
   isAuthChecked: boolean;
   error: string | null;
 };
+
+export const loginDemoGuest = createAsyncThunk('auth/loginDemoGuest', loginDemoGuestApi);
 
 export const loginUser = createAsyncThunk('auth/loginUser', (data: TLoginData) =>
   loginUserApi(data)
@@ -52,6 +55,20 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(loginDemoGuest.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(loginDemoGuest.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
+        state.isAuthChecked = true;
+      })
+      .addCase(loginDemoGuest.rejected, (state) => {
+        state.isLoading = false;
+        state.error =
+          'Demo konnte nicht gestartet werden. Bitte erlaube Sitzungsspeicher im Browser.';
+      })
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
         state.error = null;

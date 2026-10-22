@@ -1,7 +1,8 @@
 import { OrderStatus } from '@components';
-import { formatEuro, formatOrderDate } from '../../../utils/format';
 import { memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
+import { formatEuro, formatOrderDate } from '../../../utils/format';
 
 import type { OrderCardUIProps } from './type';
 

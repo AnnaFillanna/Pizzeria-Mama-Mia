@@ -1,5 +1,6 @@
-import { Input, Button, PasswordInput } from '../../form-controls';
 import { Link } from 'react-router-dom';
+
+import { Input, Button, PasswordInput } from '../../form-controls';
 
 import type { ResetPasswordUIProps } from './type';
 

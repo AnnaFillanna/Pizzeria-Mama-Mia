@@ -1,4 +1,5 @@
 import { ProfileMenu } from '@components';
+
 import { Button, Input } from '../../form-controls';
 
 import type { ProfileUIProps } from './type';
@@ -6,6 +7,7 @@ import type { ProfileUIProps } from './type';
 import styles from './profile.module.css';
 
 export const ProfileUI = ({
+  isDemo,
   formValue,
   isFormChanged,
   updateUserError,
@@ -21,6 +23,7 @@ export const ProfileUI = ({
       <>
         <div className="pb-6">
           <Input
+            disabled={isDemo}
             type={'text'}
             placeholder={'Name'}
             onChange={handleInputChange}
@@ -34,6 +37,7 @@ export const ProfileUI = ({
         </div>
         <div className="pb-6">
           <Input
+            disabled={isDemo}
             type={'email'}
             placeholder={'E-mail'}
             onChange={handleInputChange}
@@ -47,6 +51,7 @@ export const ProfileUI = ({
         </div>
         <div className="pb-6">
           <Input
+            disabled={isDemo}
             type={'password'}
             placeholder={'Passwort (wird nicht gespeichert)'}
             onChange={handleInputChange}
@@ -58,7 +63,8 @@ export const ProfileUI = ({
             icon={'EditIcon'}
           />
         </div>
-        {isFormChanged && (
+        {isDemo && <p>Demo-Gast: Profildaten können nicht geändert werden.</p>}
+        {!isDemo && isFormChanged && (
           <div>
             <Button
               type="secondary"

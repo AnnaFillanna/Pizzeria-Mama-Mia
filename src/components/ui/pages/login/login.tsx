@@ -1,11 +1,14 @@
-import { Input, Button, PasswordInput } from '../../form-controls';
 import { Link } from 'react-router-dom';
+
+import { Input, Button, PasswordInput } from '../../form-controls';
 
 import type { LoginUIProps } from './type';
 
 import styles from '../common.module.css';
 
 export const LoginUI = ({
+  onDemoLogin,
+  isLoading,
   email,
   setEmail,
   errorText,
@@ -16,6 +19,12 @@ export const LoginUI = ({
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
       <h3 className="pb-6 text text_type_main-medium">Anmelden</h3>
+      <div className="pb-6">
+        <Button onClick={onDemoLogin} disabled={isLoading} type="secondary">
+          Als Demo-Gast testen
+        </Button>
+        <p>Ohne Registrierung oder E-Mail-Adresse.</p>
+      </div>
       <form className={`pb-15 ${styles.form}`} name="login" onSubmit={handleSubmit}>
         <>
           <div className="pb-6">

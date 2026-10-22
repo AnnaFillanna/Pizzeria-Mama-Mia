@@ -47,3 +47,19 @@ Playwright startet den Vite-Server für E2E-Tests automatisch. Falls der Chromiu
 `npm run deploy` baut die Anwendung und veröffentlicht `dist/` auf dem Branch `gh-pages`. In GitHub → Settings → Pages muss „Deploy from a branch“, `gh-pages` und `/ (root)` ausgewählt sein. Hash-Routing unterstützt direkte Links zu Unterseiten ohne Serverkonfiguration.
 
 Die Zutatenbilder wurden mit dem integrierten ImageGen-Werkzeug erstellt. Das Atlas-Original liegt unter `public/ingredients/atlas.png`; die einzelnen Kacheln werden als lokale JPG-Dateien geladen. Preise und Nährwerte sind illustrative Beispieldaten.
+
+### Demo-Gast im Portfolio
+
+Auf `/login` startet „Als Demo-Gast testen“ eine lokale Gastsitzung ohne E-Mail
+oder Passwort. Das Profil zeigt „Demo-Gast“; Änderungen sind sowohl in der UI
+als auch in der lokalen API gesperrt. Gaststatus und Testbestellungen liegen in
+`sessionStorage`, getrennt von den bisherigen lokalen Kontodaten. Neuladen
+behält sie bei, Abmelden entfernt sie. Andere Besucher und unabhängig geöffnete
+Tabs teilen keinen beschreibbaren Speicher. Beim Duplizieren eines Tabs kann der
+Browser eine anfängliche Kopie übernehmen; danach bleiben beide Speicher getrennt.
+
+Die bestehende Anwendung hat kein Authentifizierungs- oder Bestellbackend:
+Registrierung/Login simulieren lokale Profile, ohne Passwörter zu prüfen oder zu
+speichern. Diese Funktionen sind keine produktive Authentifizierung. Sämtliche
+Bestellungen bleiben im Browser; es gibt weder Versand noch Zahlungsabwicklung.
+Der Demo-Gast verwendet keine Zugangsdaten und keinen produktiven Account.

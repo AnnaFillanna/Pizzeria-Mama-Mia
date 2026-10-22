@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-
 import { OrderCard } from '@components';
+import { Link } from 'react-router-dom';
 
 import type { OrdersListUIProps } from './type';
 

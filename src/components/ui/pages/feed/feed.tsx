@@ -1,5 +1,4 @@
 import { OrdersList, FeedInfo } from '@components';
-
 import { memo } from 'react';
 
 import type { FeedUIProps } from './type';

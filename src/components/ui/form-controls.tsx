@@ -1,4 +1,5 @@
 import { useId, useState } from 'react';
+
 import type { ComponentProps, ReactNode } from 'react';
 
 type InputProps = Omit<ComponentProps<'input'>, 'size'> & {
@@ -24,7 +25,7 @@ export const Input = ({
       <input
         {...props}
         id={inputId}
-        aria-invalid={error || undefined}
+        aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${inputId}-error` : undefined}
       />
       {error && (

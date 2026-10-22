@@ -17,7 +17,7 @@ test('German account forms and empty order history on mobile', async ({ page }) 
   await expect(page.getByLabel('Name', { exact: true })).toHaveValue('Mamma Mia Fan');
   await page.goto('/#/profile/orders');
   await expect(page.getByRole('heading', { name: 'Noch keine Bestellungen' })).toBeVisible();
-  await expect(page.locator('body')).not.toContainText(/demo/i);
+  await expect(page.getByLabel('Hinweis zur Demo-Version')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
@@ -30,7 +30,7 @@ test('order history uses euros, German dates and light cards', async ({ page }) 
   await expect(card).toContainText('13,00');
   await expect(card).toContainText('€');
   await expect(card).toHaveCSS('background-color', 'rgb(255, 253, 248)');
-  await expect(page.locator('body')).not.toContainText(/demo|Сегодня|Пароль/);
+  await expect(page.locator('body')).not.toContainText(/Сегодня|Пароль/);
   await card.click();
   await expect(page.getByText('Bestelldetails', { exact: true })).toBeVisible();
 });

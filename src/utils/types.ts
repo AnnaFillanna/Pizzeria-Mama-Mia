@@ -46,6 +46,7 @@ export type TOrdersData = {
 };
 
 export type TUser = {
+  isDemo?: boolean;
   email: string;
   name: string;
 };

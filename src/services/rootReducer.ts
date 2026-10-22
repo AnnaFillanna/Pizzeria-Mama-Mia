@@ -1,4 +1,4 @@
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineReducers, type UnknownAction } from '@reduxjs/toolkit';
 
 import authReducer from './slices/authSlice';
 import constructorReducer from './slices/constructorSlice';
@@ -9,7 +9,7 @@ import orderReducer from './slices/orderSlice';
 import pizzaReducer from './slices/pizzaSlice';
 import profileOrdersReducer from './slices/profileOrdersSlice';
 
-export const rootReducer = combineReducers({
+const combinedReducer = combineReducers({
   ingredients: ingredientsReducer,
   burgerConstructor: constructorReducer,
   order: orderReducer,
@@ -19,3 +19,22 @@ export const rootReducer = combineReducers({
   orderInfo: orderInfoReducer,
   pizza: pizzaReducer,
 });
+
+// Clear cached order details and the cart when changing the local identity.
+export const rootReducer = (
+  state: ReturnType<typeof combinedReducer> | undefined,
+  action: UnknownAction
+): ReturnType<typeof combinedReducer> => {
+  if (
+    action.type === 'auth/loginDemoGuest/fulfilled' ||
+    action.type === 'auth/logoutUser/fulfilled'
+  ) {
+    state = state
+      ? {
+          ...combinedReducer(undefined, { type: 'reset' }),
+          ingredients: state.ingredients,
+        }
+      : undefined;
+  }
+  return combinedReducer(state, action);
+};

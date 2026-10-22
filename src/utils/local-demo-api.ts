@@ -5,6 +5,23 @@ import type { TIngredient, TOrder, TUser } from './types';
 
 const ORDERS_KEY = 'mamma-mia-demo-orders';
 const USER_KEY = 'mamma-mia-demo-user';
+const GUEST_KEY = 'mamma-mia-guest-session';
+const GUEST_ORDERS_KEY = 'mamma-mia-guest-orders';
+
+// This is a local simulation, never a credential for a backend.
+const isGuest = (): boolean =>
+  typeof sessionStorage !== 'undefined' &&
+  sessionStorage.getItem(GUEST_KEY) === 'active';
+const guestUser = (): TUser => ({ name: 'Demo-Gast', email: '', isDemo: true });
+const orderStorage = (): Storage => (isGuest() ? sessionStorage : localStorage);
+const orderKey = (): string => (isGuest() ? GUEST_ORDERS_KEY : ORDERS_KEY);
+
+export const loginDemoGuestApi = (): Promise<TAuthResponse> =>
+  Promise.resolve().then(() => {
+    if (!isGuest()) sessionStorage.removeItem(GUEST_ORDERS_KEY);
+    sessionStorage.setItem(GUEST_KEY, 'active');
+    return makeAuthResponse(guestUser());
+  });
 
 const isDemoOrder = (value: unknown): value is TOrder =>
   typeof value === 'object' &&
@@ -45,7 +62,7 @@ export type TPizzaOrderInput = {
 };
 
 const readOrders = (): TOrder[] => {
-  const storedOrders = localStorage.getItem(ORDERS_KEY);
+  const storedOrders = orderStorage().getItem(orderKey());
   if (!storedOrders) return [];
 
   try {
@@ -67,10 +84,11 @@ const readOrders = (): TOrder[] => {
 };
 
 const saveOrders = (orders: TOrder[]): void => {
-  localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+  orderStorage().setItem(orderKey(), JSON.stringify(orders));
 };
 
 const readUser = (): TUser | null => {
+  if (isGuest()) return guestUser();
   const storedUser = localStorage.getItem(USER_KEY);
   if (!storedUser) return null;
 
@@ -94,6 +112,7 @@ const readUser = (): TUser | null => {
 };
 
 const saveUser = (user: TUser): void => {
+  if (isGuest()) throw new Error('Profildaten sind im Demo-Modus gesperrt.');
   localStorage.setItem(USER_KEY, JSON.stringify(user));
 };
 
@@ -213,7 +232,12 @@ export const updateUserApi = (
 
 export const logoutApi = (): Promise<TServerResponse> =>
   Promise.resolve().then(() => {
-    localStorage.removeItem(USER_KEY);
+    if (isGuest()) {
+      sessionStorage.removeItem(GUEST_KEY);
+      sessionStorage.removeItem(GUEST_ORDERS_KEY);
+    } else {
+      localStorage.removeItem(USER_KEY);
+    }
     return { success: true };
   });
 

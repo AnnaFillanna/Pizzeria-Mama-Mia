@@ -31,6 +31,7 @@ export const Profile = (): React.JSX.Element => {
 
   const handleSubmit = (e: SyntheticEvent): void => {
     e.preventDefault();
+    if (user?.isDemo) return;
 
     void dispatch(
       updateUser({
@@ -66,6 +67,7 @@ export const Profile = (): React.JSX.Element => {
 
   return (
     <ProfileUI
+      isDemo={user?.isDemo}
       formValue={formValue}
       isFormChanged={isFormChanged}
       handleCancel={handleCancel}
