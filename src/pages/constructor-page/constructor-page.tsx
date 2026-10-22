@@ -18,6 +18,7 @@ import {
 import styles from './constructor-page.module.css';
 
 const groups = [
+  { title: 'Saucen', types: ['sauce'] },
   { title: 'Käse', types: ['cheese'] },
   { title: 'Gemüse', types: ['vegetable'] },
   { title: 'Pilze', types: ['mushroom'] },
@@ -80,14 +81,23 @@ export const ConstructorPage = (): React.JSX.Element => {
             Handgemachter Teig, sonnengereifte Zutaten und ganz viel Amore. Stell dir
             deine Lieblingspizza zusammen.
           </p>
-          <a className={styles.primaryLink} href="#konfigurator">
+          <a
+            className={styles.primaryLink}
+            href="#/"
+            onClick={(event) => {
+              event.preventDefault();
+              document
+                .querySelector('#konfigurator')
+                ?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Pizza kreieren <span aria-hidden="true">↓</span>
           </a>
           <p className={styles.deliveryNote}>Frisch zubereitet · Nur als lokale Demo</p>
         </div>
         <div className={styles.heroImage}>
           <img
-            src="/pizza-illustration.svg"
+            src={`${import.meta.env.BASE_URL}pizza-illustration.svg`}
             alt="Frisch gebackene Pizza mit Tomaten, Käse und Basilikum"
           />
           <span className={styles.heroBadge}>
@@ -112,7 +122,10 @@ export const ConstructorPage = (): React.JSX.Element => {
           {PIZZA_RECIPES.map((recipe) => (
             <article className={styles.recipeCard} key={recipe.name}>
               <div className={styles.recipeImage}>
-                <img src="/pizza-illustration.svg" alt={`${recipe.imageLabel} Pizza`} />
+                <img
+                  src={`${import.meta.env.BASE_URL}pizza-illustration.svg`}
+                  alt={`${recipe.imageLabel} Pizza`}
+                />
               </div>
               <div className={styles.recipeContent}>
                 <div>
@@ -164,13 +177,7 @@ export const ConstructorPage = (): React.JSX.Element => {
                       checked={pizza.doughId === option._id}
                       onChange={() => dispatch(selectDough(option._id))}
                     />
-                    <span className={styles.doughIcon} aria-hidden="true">
-                      {option._id === 'dough-classic'
-                        ? '◒'
-                        : option._id === 'dough-wholegrain'
-                          ? '◉'
-                          : '○'}
-                    </span>
+                    <img className={styles.doughIcon} src={option.image} alt="" />
                     <span className={styles.doughName}>{option.name}</span>
                     <span className={styles.doughPrice}>
                       {option.price ? `+ ${euro(option.price)}` : 'Klassisch'}
@@ -224,6 +231,12 @@ export const ConstructorPage = (): React.JSX.Element => {
                               checked={checked}
                               onChange={() => dispatch(toggleTopping(item._id))}
                             />
+                            <img
+                              className={styles.ingredientImage}
+                              src={item.image}
+                              alt=""
+                              loading="lazy"
+                            />
                             <span>{item.name}</span>
                             <small>+ {euro(item.price)}</small>
                           </label>
@@ -238,7 +251,10 @@ export const ConstructorPage = (): React.JSX.Element => {
 
           <aside className={styles.summary} aria-label="Deine Pizza im Überblick">
             <div className={styles.summaryImage}>
-              <img src="/pizza-illustration.svg" alt="Vorschau deiner Pizza" />
+              <img
+                src={`${import.meta.env.BASE_URL}pizza-illustration.svg`}
+                alt="Vorschau deiner Pizza"
+              />
             </div>
             <p className={styles.eyebrow}>DEIN UNIKAT</p>
             <h3>Pizza nach Wunsch</h3>
@@ -248,7 +264,10 @@ export const ConstructorPage = (): React.JSX.Element => {
             <ul className={styles.summaryList}>
               {toppings.map((item) => (
                 <li key={item._id}>
-                  <span>{item.name}</span>
+                  <span className={styles.summaryIngredient}>
+                    <img src={item.image} alt="" />
+                    {item.name}
+                  </span>
                   <span>{euro(item.price)}</span>
                 </li>
               ))}

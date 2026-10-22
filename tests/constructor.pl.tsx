@@ -40,3 +40,26 @@ test('menu pizza presets update the configurable toppings', async ({ page }) => 
   await expect(page.getByRole('checkbox', { name: /Steinpilze/ })).toBeChecked();
   await expect(page.getByRole('checkbox', { name: /Kirschtomaten/ })).not.toBeChecked();
 });
+
+test('new illustrated ingredients work on a mobile screen', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const name of ['Gurken', 'Basilikum-Pesto', 'Garnelen']) {
+    await page.getByRole('checkbox', { name: new RegExp(name) }).check();
+  }
+  await expect(page.getByRole('checkbox')).toHaveCount(45);
+  const cucumberImage = page
+    .locator('label')
+    .filter({ has: page.getByRole('checkbox', { name: /Gurken/ }) })
+    .locator('img');
+  await expect(cucumberImage).toHaveJSProperty('naturalWidth', 181);
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)
+  ).toBe(true);
+  await page.getByRole('button', { name: 'Demo-Bestellung aufgeben' }).click();
+  await expect(page.getByRole('status')).toContainText('Grazie');
+  const orders = await page.evaluate(() =>
+    localStorage.getItem('mamma-mia-demo-orders')
+  );
+  for (const id of ['veg-cucumber', 'sauce-pesto', 'fish-shrimp'])
+    expect(orders).toContain(id);
+});

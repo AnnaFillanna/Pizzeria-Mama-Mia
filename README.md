@@ -2,6 +2,14 @@
 
 Eine eigenständige Portfolio-Demo auf Basis von React, TypeScript, Redux Toolkit und React Router. Stelle Teig, Größe und Belag zusammen und lege eine lokale Demo-Bestellung an.
 
+## Live-Demo
+
+[🍕 Pizzeria Mamma Mia öffnen](https://annafillanna.github.io/Pizzeria-Mama-Mia/)
+
+Ohne Installation ausprobieren: Pizza zusammenstellen, Preis live sehen und eine Demo-Bestellung aufgeben. Die Anwendung ist ein Frontend-Portfolio-Projekt; alle Bestellungen bleiben im eigenen Browser.
+
+![Zutaten im Konfigurator](public/ingredients/atlas.png)
+
 ## Start
 
 ```bash
@@ -14,7 +22,8 @@ Die Anwendung läuft unter `http://localhost:4000`.
 ## Demo-Funktionen
 
 - Klassischer, Vollkorn- und glutenfreier Teig als separate Optionen
-- Drei Größen sowie vegetarische, Käse-, Pilz-, Fleisch- und Fischbeläge
+- 48 bebilderte Optionen: drei Teigböden, vier Saucen, Käse, Gemüse, Kräuter, Pilze, Fleisch und Meeresfrüchte
+- Drei Größen und individuelle Kombinationen
 - Redux-basierte Auswahl, Preisberechnung und lokale Bestellbestätigung
 - Lokale Demo-Bestellhistorie und Profilansichten im Browser
 - Keine Verbindung zur Stellar-Burgers-API oder zu einem Bestellserver
@@ -32,3 +41,9 @@ npm run e2e
 ```
 
 Playwright startet den Vite-Server für E2E-Tests automatisch. Falls der Chromium-Testbrowser noch fehlt, lässt er sich einmalig mit `npx playwright install chromium` installieren.
+
+## Veröffentlichung
+
+`npm run deploy` baut die Anwendung und veröffentlicht `dist/` auf dem Branch `gh-pages`. In GitHub → Settings → Pages muss „Deploy from a branch“, `gh-pages` und `/ (root)` ausgewählt sein. Hash-Routing unterstützt direkte Links zu Unterseiten ohne Serverkonfiguration.
+
+Die Zutatenbilder wurden mit dem integrierten ImageGen-Werkzeug erstellt. Das Atlas-Original liegt unter `public/ingredients/atlas.png`; die einzelnen Kacheln werden als lokale JPG-Dateien geladen. Preise und Nährwerte sind illustrative Demodaten.
