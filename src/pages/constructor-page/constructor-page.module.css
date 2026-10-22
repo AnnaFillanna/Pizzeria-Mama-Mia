@@ -340,13 +340,38 @@
 .doughCard:hover,
 .sizeCard:hover {
   border-color: #c77a55;
-  transform: translateY(-2px);
 }
 
 .doughCard.selected,
 .sizeCard.selected {
   background: #fff6e8;
-  border: 2px solid #ba4c32;
+  border-color: #ba4c32;
+  box-shadow: inset 0 0 0 1px #ba4c32;
+}
+
+.doughCard {
+  display: grid;
+  grid-template-rows: 80px 1fr auto;
+  justify-items: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.doughCard .doughIcon {
+  margin: 0;
+}
+
+.doughName {
+  display: flex;
+  align-items: center;
+  min-height: 2.4em;
+  line-height: 1.2;
+}
+
+.doughCard .doughPrice {
+  min-height: 2.4em;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .doughCard input {
