@@ -1,5 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="32" fill="#bd442d"/>
-  <path d="M32 9 37 26 54 20 42 34 56 45 38 42 32 59 26 42 8 45 22 34 10 20 27 26Z" fill="#fff4df"/>
-  <circle cx="32" cy="34" r="6" fill="#bd442d"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <mask id="slices">
+      <circle cx="64" cy="64" r="61" fill="white"/>
+      <path d="M65 1V62L112 106M64 64L33 119M64 64L2 68" fill="none" stroke="black" stroke-width="4" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <g mask="url(#slices)">
+    <circle cx="64" cy="64" r="61" fill="#d64533"/>
+    <g fill="#fff8ec">
+      <circle cx="46" cy="33" r="12"/>
+      <circle cx="100" cy="55" r="13"/>
+      <circle cx="31" cy="84" r="12"/>
+      <circle cx="78" cy="104" r="10"/>
+    </g>
+    <g fill="#6b7f5a">
+      <path d="M73 48C66 29 80 19 98 22C99 39 89 50 73 48Z"/>
+      <path d="M94 72C104 70 111 78 108 88C98 88 91 82 94 72Z"/>
+      <ellipse cx="30" cy="54" rx="8" ry="5" transform="rotate(-28 30 54)"/>
+      <ellipse cx="64" cy="85" rx="5" ry="8" transform="rotate(20 64 85)"/>
+    </g>
+    <g fill="#3d322b">
+      <circle cx="23" cy="47" r="5.5"/>
+      <circle cx="65" cy="92" r="4.8"/>
+      <circle cx="54" cy="107" r="5.2"/>
+    </g>
+  </g>
 </svg>
