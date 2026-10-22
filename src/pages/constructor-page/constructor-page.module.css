@@ -78,6 +78,33 @@
   font-size: 14px;
 }
 
+@media (width >= 1024px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(30px, 4vw, 60px);
+    padding-right: clamp(40px, 5.5vw, 80px);
+    padding-left: clamp(40px, 5.5vw, 80px);
+  }
+
+  .heroCopy {
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 5.3vw, 76px);
+    letter-spacing: -3px;
+  }
+
+  .heroText {
+    max-width: 420px;
+  }
+
+  .primaryLink {
+    padding: 18px 32px;
+    font-size: 18px;
+  }
+}
+
 .heroImage {
   position: relative;
   display: grid;
