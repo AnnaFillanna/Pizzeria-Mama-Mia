@@ -269,8 +269,8 @@ export const ConstructorPage = (): React.JSX.Element => {
           <aside className={styles.summary} aria-label="Deine Pizza im Überblick">
             <div className={styles.summaryImage}>
               <img
-                src={`${import.meta.env.BASE_URL}pizza-illustration.svg`}
-                alt="Vorschau deiner Pizza"
+                src={`${import.meta.env.BASE_URL}pizzas/pizza-nach-wunsch.jpg`}
+                alt="Pizza mit Mozzarella, Tomaten und Rucola"
               />
             </div>
             <p className={styles.eyebrow}>DEIN UNIKAT</p>
