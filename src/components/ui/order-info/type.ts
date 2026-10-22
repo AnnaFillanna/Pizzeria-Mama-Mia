@@ -1,10 +1,11 @@
-import type { TIngredient } from '@utils-types';
+import type { TIngredient, TPizzaPrice } from '@utils-types';
 
 export type OrderInfoUIProps = {
   orderInfo: TOrderInfo;
 };
 
 type TOrderInfo = {
+  pricing?: TPizzaPrice;
   ingredientsInfo: Record<string, TIngredient & { count: number }>;
   date: Date;
   total: number;

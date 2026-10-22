@@ -27,7 +27,7 @@ test('order history uses euros, German dates and light cards', async ({ page }) 
   await page.getByRole('navigation').getByRole('link', { name: 'Bestellungen', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Bestellungen', exact: true })).toBeVisible();
   const card = page.getByRole('link').filter({ hasText: 'Deine Pizza nach Wunsch' });
-  await expect(card).toContainText('13,50');
+  await expect(card).toContainText('13,00');
   await expect(card).toContainText('€');
   await expect(card).toHaveCSS('background-color', 'rgb(255, 253, 248)');
   await expect(page.locator('body')).not.toContainText(/demo|Сегодня|Пароль/);

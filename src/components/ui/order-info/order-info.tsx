@@ -1,6 +1,7 @@
 import { OrderStatus } from '@components';
-import { formatEuro, formatOrderDate } from '../../../utils/format';
 import { memo } from 'react';
+
+import { formatEuro, formatOrderDate } from '../../../utils/format';
 
 import type { OrderInfoUIProps } from './type';
 
@@ -17,6 +18,14 @@ export const OrderInfoUI = memo(function OrderInfoUI({
       <OrderStatus status={orderInfo.status} />
       <p className={`text text_type_main-medium pt-15 pb=6`}>Deine Pizza:</p>
       <ul className={`${styles.list} mb-8`}>
+        {orderInfo.pricing && (
+          <li className={`pb-4 pr-6 ${styles.item}`}>
+            <span>{orderInfo.pricing.sizeName} · Grundpreis</span>
+            <span className={styles.quantity}>
+              {formatEuro(orderInfo.pricing.basePriceCents / 100)}
+            </span>
+          </li>
+        )}
         {Object.values(orderInfo.ingredientsInfo).map((item, index) => (
           <li className={`pb-4 pr-6 ${styles.item}`} key={index}>
             <div className={styles.img_wrap}>
@@ -28,7 +37,16 @@ export const OrderInfoUI = memo(function OrderInfoUI({
             <span
               className={`text text_type_digits-default pl-4 pr-4 ${styles.quantity}`}
             >
-              {item.count} × {formatEuro(item.price)}
+              {item.count} ×{' '}
+              {formatEuro(
+                orderInfo.pricing
+                  ? (item.type === 'dough'
+                      ? orderInfo.pricing.doughPriceCents
+                      : (orderInfo.pricing.ingredients.find(
+                          (ingredient) => ingredient.id === item._id
+                        )?.priceCents ?? Math.round(item.price * 100))) / 100
+                  : item.price
+              )}
             </span>
           </li>
         ))}

@@ -1,3 +1,12 @@
+export type TPizzaPrice = {
+  sizeName: string;
+  basePriceCents: number;
+  doughName: string;
+  doughPriceCents: number;
+  ingredients: { id: string; name: string; priceCents: number }[];
+  totalCents: number;
+};
+
 export type TIngredient = {
   _id: string;
   name: string;
@@ -27,6 +36,7 @@ export type TOrder = {
   doughId?: string;
   size?: 'small' | 'medium' | 'large';
   totalPrice?: number;
+  pricing?: TPizzaPrice;
 };
 
 export type TOrdersData = {

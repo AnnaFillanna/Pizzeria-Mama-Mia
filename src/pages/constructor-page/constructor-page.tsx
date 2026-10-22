@@ -14,6 +14,7 @@ import {
   PIZZA_RECIPES,
   PIZZA_SIZES,
 } from '../../utils/pizza-data';
+import { calculatePizzaPrice, getOrderTotalCents } from '../../utils/pizza-pricing';
 
 import styles from './constructor-page.module.css';
 
@@ -41,14 +42,17 @@ export const ConstructorPage = (): React.JSX.Element => {
   const size = PIZZA_SIZES.find((item) => item.id === pizza.size) ?? PIZZA_SIZES[1];
   const toppings = useMemo(
     () =>
-      pizza.toppingIds
+      [...new Set(pizza.toppingIds)]
         .map((id) => PIZZA_INGREDIENTS.find((item) => item._id === id))
         .filter((item) => item !== undefined),
     [pizza.toppingIds]
   );
-  const total =
-    (8.5 + dough.price + toppings.reduce((sum, item) => sum + item.price, 0)) *
-    size.multiplier;
+  const pricing = calculatePizzaPrice({
+    size: pizza.size,
+    doughId: dough._id,
+    ingredientIds: pizza.toppingIds,
+  });
+  const total = pricing.totalCents / 100;
 
   const chooseRecipe = (ingredientIds: string[]): void => {
     dispatch(setToppings(ingredientIds));
@@ -62,7 +66,6 @@ export const ConstructorPage = (): React.JSX.Element => {
         ingredientIds: toppings.map((item) => item._id),
         doughId: dough._id,
         size: pizza.size,
-        totalPrice: total,
       })
     );
   };
@@ -130,9 +133,21 @@ export const ConstructorPage = (): React.JSX.Element => {
               <div className={styles.recipeContent}>
                 <div>
                   <h3>{recipe.name}</h3>
-                  <span>ab 8,50 €</span>
+                  <span>
+                    {euro(
+                      calculatePizzaPrice({
+                        size: pizza.size,
+                        doughId: dough._id,
+                        ingredientIds: recipe.ingredientIds,
+                      }).totalCents / 100
+                    )}
+                  </span>
                 </div>
-                <p>{recipe.description}</p>
+                <p>
+                  {recipe.description}
+                  <br />
+                  {size.name} ({size.diameter}) · {dough.name}
+                </p>
                 <button type="button" onClick={() => chooseRecipe(recipe.ingredientIds)}>
                   Auswählen <span aria-hidden="true">↗</span>
                 </button>
@@ -180,7 +195,7 @@ export const ConstructorPage = (): React.JSX.Element => {
                     <img className={styles.doughIcon} src={option.image} alt="" />
                     <span className={styles.doughName}>{option.name}</span>
                     <span className={styles.doughPrice}>
-                      {option.price ? `+ ${euro(option.price)}` : 'Klassisch'}
+                      {option.price ? `+ ${euro(option.price)}` : 'Inklusive (0,00 €)'}
                     </span>
                   </label>
                 ))}
@@ -201,7 +216,9 @@ export const ConstructorPage = (): React.JSX.Element => {
                     onClick={() => dispatch(selectSize(option.id))}
                   >
                     <strong>{option.name}</strong>
-                    <span>{option.diameter}</span>
+                    <span>
+                      {option.diameter} · {euro(option.basePriceCents / 100)}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -262,6 +279,18 @@ export const ConstructorPage = (): React.JSX.Element => {
               {dough.name} · {size.name} ({size.diameter})
             </p>
             <ul className={styles.summaryList}>
+              <li>
+                <span>{pricing.sizeName} · Grundpreis</span>
+                <span>{euro(pricing.basePriceCents / 100)}</span>
+              </li>
+              <li>
+                <span>{pricing.doughName}</span>
+                <span>
+                  {pricing.doughPriceCents
+                    ? `+ ${euro(pricing.doughPriceCents / 100)}`
+                    : 'Inklusive (0,00 €)'}
+                </span>
+              </li>
               {toppings.map((item) => (
                 <li key={item._id}>
                   <span className={styles.summaryIngredient}>
@@ -304,7 +333,7 @@ export const ConstructorPage = (): React.JSX.Element => {
           <div>
             <strong>Grazie, deine Pizza ist bestellt!</strong>
             <span>
-              Bestellung Nr. {order.number} · {euro(order.totalPrice ?? total)}
+              Bestellung Nr. {order.number} · {euro(getOrderTotalCents(order) / 100)}
             </span>
           </div>
           <button

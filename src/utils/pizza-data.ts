@@ -76,9 +76,9 @@ export const DOUGH_OPTIONS = PIZZA_INGREDIENTS.filter(
 );
 
 export const PIZZA_SIZES = [
-  { id: 'small', name: 'Klein', diameter: '24 cm', multiplier: 0.8 },
-  { id: 'medium', name: 'Mittel', diameter: '30 cm', multiplier: 1 },
-  { id: 'large', name: 'Groß', diameter: '36 cm', multiplier: 1.25 },
+  { id: 'small', name: 'Klein', diameter: '24 cm', basePriceCents: 500 },
+  { id: 'medium', name: 'Mittel', diameter: '30 cm', basePriceCents: 800 },
+  { id: 'large', name: 'Groß', diameter: '36 cm', basePriceCents: 900 },
 ] as const;
 
 export const PIZZA_RECIPES = [

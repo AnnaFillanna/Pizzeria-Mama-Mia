@@ -1,0 +1,9 @@
+# Preisregel
+
+Alle Berechnungen erfolgen in `calculatePizzaPrice` (`src/utils/pizza-pricing.ts`) in Integer-Cent. Die bisherigen Zutatenpreise in Euro werden ausschließlich am Katalogeingang in Cent umgerechnet. Größen enthalten klassischen Teig: Klein 500 ct, Mittel 800 ct, Groß 900 ct. Vollkorn kostet zusätzlich 100 ct, glutenfrei 200 ct. Zutatenpreise werden nicht mit der Größe multipliziert. Doppelte Zutaten-IDs werden einmal gezählt; Teig-IDs im Zutatenarray sind kein weiterer Belag.
+
+Margherita, Orto Verde und Bosco bleiben die bestehenden Zutaten-Vorauswahlen. Die Karten zeigen den Gesamtpreis für die gerade ausgewählte Größe und Teigart und benennen beide. Auswahl ersetzt die Beläge und erhält Größe und Teig. Kein zusätzlicher Produktpreis und kein erneutes Hinzufügen bereits enthaltener Zutaten. Bei Mittel/Klassisch kosten sie entsprechend 13,00 €, 15,50 € und 14,00 €.
+
+Falls später feste Menüpreise oder Rabatte gewünscht sind, ist eine Produktentscheidung erforderlich: entweder diese transparente Baukastenregel beibehalten oder explizite Rezept-Grundpreise pro Größe inklusive Standardbelägen definieren (mit Regeln für entfernte Zutaten, Extras und Teigaufschläge). Solche Sonderpreise sind derzeit nicht festgelegt und werden nicht erfunden.
+
+Neue Bestellungen werden beim Speichern erneut zentral berechnet und speichern die Preisaufstellung einschließlich Zutatenpreisen in Cent. Ein mitgelieferter Gesamtpreis wird nicht übernommen. Listen, Bestätigung und Details verwenden den gespeicherten Betrag. Bereits vorhandene Bestellungen behalten ihre historischen Euro-Gesamtpreise; sie werden nicht rückwirkend auf die neue Preisliste umgerechnet. Nur Altbestellungen ohne gespeicherten Betrag werden nach vorhandener Auswahl berechnet; fehlen Größe/Teig, gilt Mittel/Klassisch. Der alte Array-Aufruf nutzt Mittel und den enthaltenen Teig, jeweils einmal.

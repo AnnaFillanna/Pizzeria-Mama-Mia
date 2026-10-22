@@ -3,6 +3,7 @@ import { memo, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { useSelector } from '../../services/store';
+import { getOrderTotalCents } from '../../utils/pizza-pricing';
 
 import type { OrderCardProps } from './type';
 import type { TIngredient } from '@utils-types';
@@ -28,8 +29,7 @@ export const OrderCard = memo(function OrderCard({
       []
     );
 
-    const total =
-      order.totalPrice ?? ingredientsInfo.reduce((acc, item) => acc + item.price, 0);
+    const total = getOrderTotalCents(order) / 100;
 
     const ingredientsToShow = ingredientsInfo.slice(0, maxIngredients);
 

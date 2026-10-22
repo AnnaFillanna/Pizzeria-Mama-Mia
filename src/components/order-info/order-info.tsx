@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { fetchOrderByNumber } from '../../services/slices/orderInfoSlice';
 import { useDispatch, useSelector } from '../../services/store';
+import { getOrderTotalCents } from '../../utils/pizza-pricing';
 
 import type { TIngredient } from '@utils-types';
 
@@ -47,12 +48,7 @@ export const OrderInfo = (): React.JSX.Element => {
       {}
     );
 
-    const total =
-      orderData.totalPrice ??
-      Object.values(ingredientsInfo).reduce(
-        (acc, item) => acc + item.price * item.count,
-        0
-      );
+    const total = getOrderTotalCents(orderData) / 100;
 
     return {
       ...orderData,

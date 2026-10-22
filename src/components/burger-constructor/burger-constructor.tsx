@@ -4,8 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { createOrder, clearOrder } from '../../services/slices/orderSlice';
 import { useSelector, useDispatch } from '../../services/store';
-
-import type { TConstructorIngredient } from '@utils-types';
+import { calculatePizzaPrice } from '../../utils/pizza-pricing';
 
 export const BurgerConstructor = (): React.JSX.Element | null => {
   /** Liest Konstruktor- und Bestellstatus aus Redux. */
@@ -38,11 +37,11 @@ export const BurgerConstructor = (): React.JSX.Element | null => {
 
   const price = useMemo(
     () =>
-      (constructorItems.bun ? constructorItems.bun.price * 2 : 0) +
-      constructorItems.ingredients.reduce(
-        (s: number, v: TConstructorIngredient) => s + v.price,
-        0
-      ),
+      calculatePizzaPrice({
+        size: 'medium',
+        doughId: constructorItems.bun?._id ?? 'dough-classic',
+        ingredientIds: constructorItems.ingredients.map((item) => item._id),
+      }).totalCents / 100,
     [constructorItems]
   );
 

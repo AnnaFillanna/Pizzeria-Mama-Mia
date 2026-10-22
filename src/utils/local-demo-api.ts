@@ -1,4 +1,5 @@
 import { PIZZA_INGREDIENTS } from './pizza-data';
+import { calculatePizzaPrice } from './pizza-pricing';
 
 import type { TIngredient, TOrder, TUser } from './types';
 
@@ -41,7 +42,6 @@ export type TPizzaOrderInput = {
   ingredientIds: string[];
   doughId: string;
   size: 'small' | 'medium' | 'large';
-  totalPrice: number;
 };
 
 const readOrders = (): TOrder[] => {
@@ -127,22 +127,24 @@ export const submitDemoOrder = (
   order: string[] | TPizzaOrderInput
 ): Promise<TServerResponse<{ order: TOrder; name: string }>> =>
   Promise.resolve().then(() => {
-    const ingredientIds = Array.isArray(order)
-      ? order
-      : [order.doughId, ...order.ingredientIds];
+    const size = Array.isArray(order) ? 'medium' : order.size;
+    const doughId = Array.isArray(order)
+      ? (order.find((id) =>
+          PIZZA_INGREDIENTS.some((item) => item._id === id && item.type === 'dough')
+        ) ?? 'dough-classic')
+      : order.doughId;
+    const pricing = calculatePizzaPrice({
+      size,
+      doughId,
+      ingredientIds: Array.isArray(order) ? order : order.ingredientIds,
+    });
+    const ingredientIds = [doughId, ...pricing.ingredients.map((item) => item.id)];
     const existingOrders = readOrders();
     const now = new Date().toISOString();
     const number = Math.max(
       Date.now(),
       ...existingOrders.map((existingOrder) => existingOrder.number + 1)
     );
-    const totalPrice = Array.isArray(order)
-      ? ingredientIds.reduce(
-          (total, id) =>
-            total + (PIZZA_INGREDIENTS.find((item) => item._id === id)?.price ?? 0),
-          0
-        )
-      : order.totalPrice;
     const demoOrder: TOrder = {
       _id: `demo-${number}`,
       status: 'done',
@@ -151,11 +153,10 @@ export const submitDemoOrder = (
       updatedAt: now,
       number,
       ingredients: ingredientIds,
-      ...(!Array.isArray(order) && {
-        doughId: order.doughId,
-        size: order.size,
-      }),
-      totalPrice,
+      doughId,
+      size,
+      pricing,
+      totalPrice: pricing.totalCents / 100,
     };
 
     saveOrders([demoOrder, ...existingOrders]);
