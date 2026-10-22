@@ -1,0 +1,25 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #3e3026;
+  background-color: #faf7ef;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee5d8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bd442d;
+  border: 3px solid #bd442d;
+}
+
+.message {
+  margin: 120px auto;
+  text-align: center;
+}
