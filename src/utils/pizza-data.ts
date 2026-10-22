@@ -54,7 +54,7 @@ const catalog: [string, string, string, number, number, number, number, number][
 
 export const PIZZA_INGREDIENTS: TIngredient[] = catalog.map(
   ([_id, name, type, price, proteins, fat, carbohydrates, calories]) => {
-    const image = `./ingredients/${_id}.jpg`;
+    const image = `./ingredients/${_id}.${type === 'dough' ? 'png' : 'jpg'}`;
     return {
       _id,
       name,

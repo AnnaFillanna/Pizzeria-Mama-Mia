@@ -94,14 +94,14 @@ export const ConstructorPage = (): React.JSX.Element => {
                 ?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Pizza kreieren <span aria-hidden="true">↓</span>
+            Pizza kreieren
           </a>
           <p className={styles.deliveryNote}>Deine Zutaten · Deine Lieblingspizza</p>
         </div>
         <div className={styles.heroImage}>
           <img
-            src={`${import.meta.env.BASE_URL}pizza-illustration.svg`}
-            alt="Frisch gebackene Pizza mit Tomaten, Käse und Basilikum"
+            src={`${import.meta.env.BASE_URL}hero.jpg`}
+            alt="Pizza frisch aus dem Ofen"
           />
           <span className={styles.heroBadge}>
             Fatto
@@ -149,7 +149,7 @@ export const ConstructorPage = (): React.JSX.Element => {
                   {size.name} ({size.diameter}) · {dough.name}
                 </p>
                 <button type="button" onClick={() => chooseRecipe(recipe.ingredientIds)}>
-                  Auswählen <span aria-hidden="true">↗</span>
+                  Auswählen
                 </button>
               </div>
             </article>
@@ -192,7 +192,9 @@ export const ConstructorPage = (): React.JSX.Element => {
                       checked={pizza.doughId === option._id}
                       onChange={() => dispatch(selectDough(option._id))}
                     />
-                    <img className={styles.doughIcon} src={option.image} alt="" />
+                    <div className={styles.doughImage}>
+                      <img className={styles.doughIcon} src={option.image} alt="" />
+                    </div>
                     <span className={styles.doughName}>{option.name}</span>
                     <span className={styles.doughPrice}>
                       {option.price ? `+ ${euro(option.price)}` : 'Inklusive (0,00 €)'}
