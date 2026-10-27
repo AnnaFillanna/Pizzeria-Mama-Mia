@@ -54,35 +54,114 @@
   }
 }
 
-.demoHelp {
-  margin-bottom: 28px;
-  padding: 20px;
+.helpTrigger {
+  position: fixed;
+  right: 24px;
+  bottom: 32px;
+  z-index: 10;
+  padding: 14px 22px;
+  color: #fffdf8;
+  font: inherit;
+  font-weight: 700;
+  background: #3c5746;
+  border: 0;
+  border-radius: 28px;
+  box-shadow: 0 6px 24px #24392c24;
+  cursor: pointer;
+}
+
+.helpDialog {
+  position: fixed;
+  inset: 0 28px 0 auto;
+  width: min(420px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  margin: auto 0;
+  padding: 28px;
+  overflow-y: auto;
   color: #27251f;
-  font-weight: 500;
   font-size: 16px;
   line-height: 1.65;
-  overflow-wrap: anywhere;
-  background: #f3eddd;
-  border-left: 4px solid #3c5746;
+  background: #fffaf0;
+  border: 1px solid #d4c9b5;
+  border-radius: 18px;
+  box-shadow: 0 20px 80px #20271f30;
+}
+
+.helpDialog::backdrop {
+  background: #24271f38;
+}
+
+.helpDialog h4 {
+  margin: 16px 0;
+  color: #20271f;
+  font-size: 23px;
+}
+
+.helpClose {
+  display: block;
+  margin-left: auto;
+  padding: 8px;
+  color: #27251f;
+  font: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.copyRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  padding: 12px;
+  background: #eee8d9;
   border-radius: 8px;
 }
 
-.demoHelp h4 {
-  margin: 0 0 12px;
-  color: #20271f;
+.copyRow span,
+.copyRow strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.copyRow span {
+  font-size: 13px;
+}
+
+.copyRow button {
+  padding: 10px;
+  color: #263c2e;
+  font: inherit;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 14px;
+  background: #fffdf8;
+  border: 1px solid #8b9b8e;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.demoHelp p {
-  margin: 0 0 14px;
+.copyStatus {
+  min-height: 26px;
+  font-size: 14px;
 }
 
-.demoHelp strong {
-  color: #20271f;
-  font-weight: 700;
+.helpTrigger:focus-visible,
+.helpClose:focus-visible,
+.copyRow button:focus-visible {
+  outline: 3px solid #913321;
+  outline-offset: 3px;
 }
 
-.demoHelp p:last-child {
-  margin: 14px 0 0;
+@media (width <= 700px) {
+  .helpDialog {
+    inset: 0;
+    margin: auto;
+    padding: 22px;
+  }
+
+  .helpTrigger {
+    right: 16px;
+    bottom: 16px;
+  }
 }
