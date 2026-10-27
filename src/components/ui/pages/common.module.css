@@ -1,10 +1,11 @@
 .container {
   display: flex;
+  align-items: flex-start;
+  gap: 48px;
   width: min(100% - 40px, 1160px);
   margin: 48px auto;
-  gap: 48px;
-  align-items: flex-start;
 }
+
 .wrapCenter {
   width: min(100%, 480px);
   margin: 0 auto;
@@ -13,35 +14,75 @@
   border: 1px solid #e7ddce;
   border-radius: 18px;
 }
+
 .form {
   width: 100%;
 }
+
 .button {
   display: flex;
   justify-content: center;
 }
+
 .question {
   color: #66513f;
   font-size: 17px;
   line-height: 1.7;
 }
+
 .link {
   color: #913321;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
 .error {
   color: #a42d24;
   text-align: center;
 }
+
 @media (width <= 700px) {
   .container {
     flex-direction: column;
     gap: 24px;
     margin: 28px auto;
   }
+
   .wrapCenter {
     padding: 24px 18px;
   }
+}
+
+.demoHelp {
+  margin-bottom: 28px;
+  padding: 20px;
+  color: #27251f;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  background: #f3eddd;
+  border-left: 4px solid #3c5746;
+  border-radius: 8px;
+}
+
+.demoHelp h4 {
+  margin: 0 0 12px;
+  color: #20271f;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.demoHelp p {
+  margin: 0 0 14px;
+}
+
+.demoHelp strong {
+  color: #20271f;
+  font-weight: 700;
+}
+
+.demoHelp p:last-child {
+  margin: 14px 0 0;
 }

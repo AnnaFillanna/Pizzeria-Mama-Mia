@@ -58,6 +58,30 @@ export const LoginUI = ({
           )}
         </>
       </form>
+      <aside className={styles.demoHelp} aria-labelledby="demo-help-title">
+        <h4 id="demo-help-title">Keine Registrierung nötig</h4>
+        <p>
+          Dies ist eine Demo. Du kannst eine beliebige E-Mail-Adresse im gültigen Format
+          und ein frei gewähltes Passwort eingeben. Bitte verwende keine echten
+          Zugangsdaten.
+        </p>
+        <p>
+          <strong>E-Mail: demo@example.com</strong>
+          <br />
+          <strong>Passwort: Pizza123!</strong>
+        </p>
+        <Button
+          type="secondary"
+          htmlType="button"
+          onClick={() => {
+            setEmail('demo@example.com');
+            setPassword('Pizza123!');
+          }}
+        >
+          Beispieldaten einsetzen
+        </Button>
+        <p>Danach auf „Anmelden“ klicken und die Pizzeria ausprobieren.</p>
+      </aside>
       <div className={`pb-4 ${styles.question} text text_type_main-default`}>
         Noch kein Konto?
         <Link to="/register" className={`pl-2 ${styles.link}`}>
