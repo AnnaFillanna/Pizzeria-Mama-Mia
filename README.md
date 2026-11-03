@@ -10,6 +10,31 @@ Ohne Installation ausprobieren: Pizza zusammenstellen, Preis live sehen und eine
 
 ![Zutaten im Konfigurator](public/ingredients/atlas.png)
 
+## Technische Entscheidungen im Code
+
+Der Konfigurator lässt sich anhand konkreter Dateien nachvollziehen:
+
+| Aufgabe                | Umsetzung und Begründung                                                                                                                                                                     | Code                                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Auswahl verwalten      | Redux speichert Teig, Größe und Zutaten-IDs; Preise und angezeigte Zutaten werden daraus abgeleitet. Das vermeidet einen zweiten, unabhängig veränderbaren Preiszustand.                     | [pizzaSlice.ts](src/services/slices/pizzaSlice.ts), [ConstructorPage](src/pages/constructor-page/constructor-page.tsx) |
+| Preise berechnen       | Eine gemeinsame Funktion rechnet in ganzen Cent, zählt doppelte Zutaten nur einmal und weist unbekannte IDs zurück. Rezeptkarten, Zusammenfassung und Bestellung nutzen dieselbe Preisregel. | [pizza-pricing.ts](src/utils/pizza-pricing.ts), [Preisregeln](docs/pricing.md)                                         |
+| Bestellungen speichern | Beim Speichern wird der Preis erneut berechnet. Die Bestellung enthält ihre Preisaufstellung, damit spätere Katalogänderungen historische Beträge nicht verändern.                           | [local-demo-api.ts](src/utils/local-demo-api.ts)                                                                       |
+| Gastmodus abgrenzen    | Gastbestellungen liegen in sessionStorage, reguläre lokale Demodaten in localStorage. Beim Wechsel der lokalen Identität wird zwischengespeicherter Redux-Zustand zurückgesetzt.             | [local-demo-api.ts](src/utils/local-demo-api.ts), [rootReducer.ts](src/services/rootReducer.ts)                        |
+| Fehler behandeln       | Der Bestellablauf unterscheidet pending, fulfilled und rejected. Die Auswahl wird erst nach erfolgreichem Speichern geleert; bei einem Fehler kann sie erneut abgeschickt werden.            | [orderSlice.ts](src/services/slices/orderSlice.ts), [pizzaSlice.ts](src/services/slices/pizzaSlice.ts)                 |
+
+### In wenigen Minuten ausprobieren
+
+1. Im Konfigurator Größe und Teig wechseln und die Preisaufstellung beobachten.
+2. Eine Menü-Pizza auswählen: Die Beläge wechseln, Größe und Teig bleiben erhalten.
+3. Eine lokale Bestellung aufgeben, unter „Bestellungen“ öffnen und neu laden: Der gebuchte Preis bleibt erhalten.
+4. Über „Als Demo-Gast testen“ eine getrennte Sitzung öffnen und nach dem Abmelden erneut starten: Die Gastbestellungen werden entfernt.
+
+### Tests und Projektgrenzen
+
+[Jest-Tests](src/utils/pizza-pricing.test.ts) prüfen unter anderem Größen- und Teigaufschläge, doppelte Zutaten, ungültige IDs und gespeicherte Preise. Die [Playwright-Szenarien](tests) prüfen den Bestellablauf, Preiswechsel, mobile Ansichten, Profile und die Trennung von Gastsitzungen.
+
+Das Repository enthält auch ältere Komponenten mit Burger-Bezeichnungen sowie Storybook-Beispiele. Der aktive Pizza-Konfigurator liegt in [ConstructorPage](src/pages/constructor-page/constructor-page.tsx); die bestehenden Verzeichnisse sind erhalten geblieben. Bibliotheken übernehmen beispielsweise Rendering, Routing und Redux-Infrastruktur. Die projektspezifischen Regeln sind in den oben verlinkten Modulen nachvollziehbar. Die Herkunft der Zutatenbilder ist unten dokumentiert.
+
 ## Start
 
 ```bash

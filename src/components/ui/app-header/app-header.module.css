@@ -116,10 +116,12 @@
     gap: 7px;
     font-size: 20px;
   }
+
   .brandIcon {
     width: 36px;
     height: 36px;
   }
+
   .brand small {
     font-size: 10px;
     letter-spacing: 3px;

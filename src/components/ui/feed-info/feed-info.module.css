@@ -2,11 +2,13 @@
   display: flex;
   justify-content: left;
   align-items: flex-start;
+  gap: 16px;
 }
 
 .column {
   display: inline;
-  min-width: 50%;
+  flex: 1;
+  min-width: 0;
 }
 
 .list {
@@ -26,24 +28,12 @@
 
 .list_item {
   min-width: 50%;
-  text-align: left;
-}
-
-.content {
-  text-align: left;
-}
-
-.columns {
-  gap: 16px;
-}
-.column {
-  min-width: 0;
-  flex: 1;
-}
-.list_item {
-  overflow-wrap: anywhere;
   font-size: 16px;
+  text-align: left;
+  overflow-wrap: anywhere;
 }
+
 .content {
   color: #3e5b43;
+  text-align: left;
 }

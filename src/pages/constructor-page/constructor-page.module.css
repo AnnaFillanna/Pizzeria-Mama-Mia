@@ -223,6 +223,12 @@
   font-size: 14px;
 }
 
+.summaryIngredient img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
 .recipeCard:hover .recipeImage img {
   transform: scale(1.04);
 }
@@ -255,8 +261,8 @@
 .recipeContent p {
   margin: 9px 0 16px;
   color: #594839;
-  font-size: clamp(15px, 1.33vw, 17px);
   font-weight: 500;
+  font-size: clamp(15px, 1.33vw, 17px);
   line-height: 1.6;
 }
 
@@ -841,23 +847,17 @@
 }
 
 .ingredientImage {
+  flex-shrink: 0;
   width: 52px;
   height: 52px;
-  flex-shrink: 0;
-  object-fit: contain;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 .summaryIngredient {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.summaryIngredient img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
 }
 
 .topping:focus-within {

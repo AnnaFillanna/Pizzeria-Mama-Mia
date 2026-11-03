@@ -7,6 +7,8 @@
 
 .link_active {
   color: #3e5b43;
+  font-weight: 700;
+  background: #eee9dc;
 }
 
 .button {
@@ -17,17 +19,13 @@
   border: none;
 }
 
-.button:hover {
-  cursor: pointer;
-}
-
 .link,
 .button {
   padding: 14px 16px;
-  border-radius: 8px;
   font-size: 18px;
+  border-radius: 8px;
 }
-.link_active {
-  background: #eee9dc;
-  font-weight: 700;
+
+.button:hover {
+  cursor: pointer;
 }

@@ -2,28 +2,33 @@
   width: min(100% - 40px, 1160px);
   margin: 40px auto;
 }
+
 .titleBox {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
   margin: 0 0 28px;
 }
+
 .main {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 32px;
 }
+
 .columnOrders,
 .columnInfo {
   min-width: 0;
 }
+
 .columnInfo {
   padding: 24px;
   background: #f0e5d3;
   border-radius: 16px;
 }
+
 @media (width <= 800px) {
   .main {
     grid-template-columns: 1fr;
