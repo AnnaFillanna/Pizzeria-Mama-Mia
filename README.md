@@ -10,6 +10,8 @@ Interaktiver Pizza-Konfigurator mit React und TypeScript. Wähle Teig, Größe u
   <img src="docs/screenshots/mobile.png" alt="Mamma Mia – mobile Ansicht" width="23%" />
 </p>
 
+Die Vorschauen zeigen die aktuelle Startseite mit aufrechtem „Mia“ im Logo (Stand: 15. November 2026). Die Bilder werden bei Designänderungen separat aktualisiert.
+
 ## Funktionen
 
 - Drei Teigarten, drei Größen und 45 auswählbare Zutaten
