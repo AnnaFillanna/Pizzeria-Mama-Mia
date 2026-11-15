@@ -4,11 +4,16 @@ Interaktiver Pizza-Konfigurator mit React und TypeScript. Wähle Teig, Größe u
 
 **[Live-Demo ansehen](https://annafillanna.github.io/Pizzeria-Mama-Mia/)**
 
-<p align="center">
-  <img src="docs/screenshots/desktop.png" alt="Mamma Mia – Desktop-Ansicht" width="72%" />
-  &nbsp;
-  <img src="docs/screenshots/mobile.png" alt="Mamma Mia – mobile Ansicht" width="23%" />
-</p>
+<table>
+  <tr>
+    <td width="75%" valign="top">
+      <img src="docs/screenshots/desktop.png" alt="Mamma Mia – Desktop-Ansicht" width="100%" />
+    </td>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/mobile.png" alt="Mamma Mia – mobile Ansicht" width="100%" />
+    </td>
+  </tr>
+</table>
 
 Die Vorschauen zeigen die aktuelle Startseite mit aufrechtem „Mia“ im Logo (Stand: 15. November 2026). Die Bilder werden bei Designänderungen separat aktualisiert.
 
